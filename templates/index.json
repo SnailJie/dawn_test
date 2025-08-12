@@ -41,6 +41,7 @@
         "button"
       ],
       "settings": {
+        "image": "shopify://shop_images/Aesop_Shower_Towel_KR_2024_Web_Homepage_Primary_50-50_Desktop_1440x1500px.webp",
         "image_overlay_opacity": 0,
         "color_scheme": "scheme-1"
       }
@@ -181,7 +182,7 @@
     "aesop_skincare_range": {
       "type": "aesop-skincare-range",
       "settings": {
-        "title": "WOMEN ",
+        "title": "WOMEN",
         "description": "<p>A range of formulations—including a cream, an oil, serums, a masque and a toner—defined by generous measures of vitamins to offer a skin-supportive, replenishing boost.</p>",
         "button_label": "Discover the range",
         "button_link": "shopify://collections/all",
