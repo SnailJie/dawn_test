@@ -36,8 +36,8 @@
         "color_scheme": "scheme-1"
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "aesop_featured_products": {
+      "type": "aesop-featured-products",
       "settings": {
         "title": "Favourite formulations",
         "description": "Timeless gift options including celebrated staples of skin, hand and body care, as well as fragrant delights for the home.",
@@ -47,12 +47,56 @@
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "show_view_all": true,
-        "swipe_on_mobile": false,
-        "image_ratio": "portrait",
-        "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "none",
         "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "aesop_text_with_image": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "The Art of Skincare",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our approach to skincare is holistic, drawing on botanical science and a profound respect for the natural world. Each formulation is thoughtfully developed to address specific skin concerns while providing a sensorial experience that elevates daily rituals.</p>",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Discover Our Philosophy",
+            "button_link": "/pages/about",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text", 
+        "button"
+      ],
+      "settings": {
+        "height": "medium",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "color_scheme": "scheme-2",
+        "image_behavior": "none",
+        "mobile_content_alignment": "left",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -60,6 +104,7 @@
   },
   "order": [
     "aesop_hero",
-    "featured_collection"
+    "aesop_featured_products", 
+    "aesop_text_with_image"
   ]
 }

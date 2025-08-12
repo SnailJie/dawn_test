@@ -1,0 +1,403 @@
+{{ 'aesop-product-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign products_to_display = section.settings.collection.all_products_count
+
+  if section.settings.collection.all_products_count > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+
+  assign columns_mobile_int = section.settings.columns_mobile | plus: 0
+  assign show_mobile_slider = false
+  if section.settings.swipe_on_mobile and products_to_display > columns_mobile_int
+    assign show_mobile_slider = true
+  endif
+
+  assign show_desktop_slider = false
+  if section.settings.enable_desktop_slider and products_to_display > section.settings.columns_desktop
+    assign show_desktop_slider = true
+  endif
+-%}
+
+<div class="aesop-featured-products color-{{ section.settings.color_scheme }} isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width section-{{ section.id }}-padding">
+    {% comment %} Section Header {% endcomment %}
+    {%- unless section.settings.title == blank and section.settings.description == blank -%}
+      <div class="aesop-featured-products__header">
+        {%- if section.settings.title != blank -%}
+          <h2 class="aesop-featured-products__title {{ section.settings.heading_size }}">
+            {{ section.settings.title | escape }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="aesop-featured-products__description rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+    {%- endunless -%}
+
+    {% comment %} Products Grid/Slider {% endcomment %}
+    {%- if section.settings.collection == blank or section.settings.collection.products.size == 0 -%}
+      {% comment %} Empty State {% endcomment %}
+      <div class="aesop-featured-products__empty">
+        <p class="center">{{ 'sections.collection_template.empty' | t }}</p>
+        {%- if shop.admin_url -%}
+          <div class="aesop-featured-products__admin-link center">
+            <a href="{{ shop.admin_url }}">{{ 'general.continue_shopping' | t }}</a>
+          </div>
+        {%- endif -%}
+      </div>
+    {%- else -%}
+      <div
+        class="aesop-featured-products__grid{% if show_mobile_slider %} aesop-featured-products__grid--mobile-slider{% endif %}{% if show_desktop_slider %} aesop-featured-products__grid--desktop-slider{% endif %}"
+        data-products-to-show="{{ products_to_display }}"
+        data-columns-desktop="{{ section.settings.columns_desktop }}"
+        data-columns-mobile="{{ section.settings.columns_mobile }}"
+      >
+        {%- for product in section.settings.collection.products limit: section.settings.products_to_show -%}
+          {% comment %} Product Card {% endcomment %}
+          <div
+            class="aesop-featured-products__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {{ 'style="--animation-order: ' | append: forloop.index | append: ';"' }}
+          >
+            {% render 'aesop-product-card',
+              card_product: product,
+              show_vendor: section.settings.show_vendor,
+              show_rating: section.settings.show_rating,
+              show_quick_add: section.settings.quick_add,
+              section_id: section.id
+            %}
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {% comment %} View All Button {% endcomment %}
+      {%- if section.settings.show_view_all and more_in_collection -%}
+        <div class="aesop-featured-products__view-all center">
+          <a
+            href="{{ section.settings.collection.url }}"
+            class="btn btn--secondary"
+            aria-label="{{ 'sections.featured_collection.view_all_label' | t: collection_name: section.settings.collection.title }}"
+          >
+            {{ 'sections.featured_collection.view_all' | t }}
+          </a>
+        </div>
+      {%- endif -%}
+    {%- endif -%}
+  </div>
+</div>
+
+<style>
+  /* Aesop Featured Products Styles */
+
+  .aesop-featured-products {
+    padding: 0;
+    margin: 0;
+  }
+
+  .aesop-featured-products__header {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .aesop-featured-products__title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: #2C2C2C;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .aesop-featured-products__description {
+    font-size: 1.125rem;
+    color: #5A5A5A;
+    line-height: 1.6;
+    max-width: 50rem;
+    margin: 0 auto;
+  }
+
+  .aesop-featured-products__grid {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+    gap: 3rem 2rem;
+    margin-bottom: 4rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .aesop-featured-products__grid {
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+      gap: 4rem 3rem;
+    }
+  }
+
+  .aesop-featured-products__item {
+    width: 100%;
+  }
+
+  .aesop-featured-products__view-all {
+    margin-top: 2rem;
+  }
+
+  .aesop-featured-products__empty {
+    text-align: center;
+    padding: 4rem 0;
+  }
+
+  .aesop-featured-products__empty p {
+    font-size: 1.125rem;
+    color: #5A5A5A;
+    margin-bottom: 2rem;
+  }
+
+  .aesop-featured-products__admin-link a {
+    color: #2C2C2C;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  /* Animation Styles */
+  @media (prefers-reduced-motion: no-preference) {
+    .aesop-featured-products__item.scroll-trigger {
+      animation-delay: calc(var(--animation-order) * 100ms);
+    }
+  }
+
+  /* Responsive adjustments for small screens */
+  @media screen and (max-width: 550px) {
+    .aesop-featured-products__header {
+      margin-bottom: 2.5rem;
+    }
+
+    .aesop-featured-products__grid {
+      gap: 2rem 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .aesop-featured-products__title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .aesop-featured-products__description {
+      font-size: 1rem;
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .aesop-featured-products__title,
+    .aesop-featured-products__description {
+      color: CanvasText;
+    }
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .color-scheme-1 .aesop-featured-products__title {
+      color: #FFFEF9;
+    }
+
+    .color-scheme-1 .aesop-featured-products__description {
+      color: #CCCCCC;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Aesop Featured Products",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Featured Products",
+      "label": "Heading"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Small"
+        },
+        {
+          "value": "h1",
+          "label": "Medium"
+        },
+        {
+          "value": "h0",
+          "label": "Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 25,
+      "step": 1,
+      "default": 4,
+      "label": "Maximum products to show"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Number of columns on desktop"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "default": true,
+      "label": "Show 'View all' button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "Show product vendor"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "Show product rating"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "Number of columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 column"
+        },
+        {
+          "value": "2",
+          "label": "2 columns"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "Enable swipe on mobile"
+    },
+    {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "Quick add",
+      "info": "Applicable for product type that has a default variant available.",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "standard",
+          "label": "Standard"
+        },
+        {
+          "value": "bulk",
+          "label": "Bulk"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "scheme-1",
+          "label": "Background 1"
+        },
+        {
+          "value": "scheme-2",
+          "label": "Background 2"
+        },
+        {
+          "value": "scheme-3",
+          "label": "Inverse"
+        }
+      ],
+      "default": "scheme-1",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Aesop Featured Products"
+    }
+  ]
+}
+{% endschema %}
