@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   min-height: 100vh;
-  background-color: #F7F5F3;
+  background-color: rgb(255, 254, 253);
   overflow: hidden;
   isolation: isolate;
 }
