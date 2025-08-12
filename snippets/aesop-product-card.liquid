@@ -174,7 +174,20 @@
         </div>
       {%- endif -%}
 
-      {% render 'price', product: card_product, price_class: 'aesop-product-card__price', show_badges: true %}
+      <div class="aesop-product-card__price">
+        {%- if card_product.variants.size > 1 -%}
+          <span class="aesop-product-card__price-regular">
+            {{ card_product.variants.size }} sizes from {{ card_product.price_min | money }}
+          </span>
+        {%- else -%}
+          <span class="aesop-product-card__price-regular">
+            {{ card_product.price | money }}
+          </span>
+        {%- endif -%}
+        {%- if card_product.available == false -%}
+          <span class="aesop-product-card__badge--favoured">FAVOURED GIFT</span>
+        {%- endif -%}
+      </div>
 
       {%- if show_quick_add -%}
         <div class="aesop-product-card__quick-add no-js-hidden">
@@ -216,7 +229,7 @@
                 >
                   <span>
                     {%- if card_product.selected_or_first_available_variant.available -%}
-                      {{ 'products.product.add_to_cart' | t }}
+                      Quick view
                     {%- else -%}
                       {{ 'products.product.sold_out' | t }}
                     {%- endif -%}
@@ -246,7 +259,7 @@
                 aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                 data-product-url="{{ card_product.url }}"
               >
-                {{ 'products.product.choose_options' | t }}
+                Quick view
               </button>
             </modal-opener>
             <quick-add-modal id="QuickAdd-{{ card_product.id }}" class="quick-add-modal">
@@ -263,7 +276,7 @@
                   class="quick-add-modal__toggle"
                   aria-label="{{ 'accessibility.close' | t }}"
                 >
-                  {% render 'icon-close' %}
+                  {{ 'icon-close.svg' | inline_asset_content }}
                 </button>
                 <div id="QuickAddInfo-{{ card_product.id }}" class="quick-add-modal__content-info"></div>
               </div>

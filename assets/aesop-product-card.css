@@ -3,7 +3,7 @@
 .aesop-product-card {
   display: flex;
   flex-direction: column;
-  background-color: #FFFEF9;
+  background-color: #FFFEF7;
   border: none;
   transition: all 0.3s ease;
   text-decoration: none;
@@ -14,8 +14,8 @@
 }
 
 .aesop-product-card:hover {
-  transform: translateY(-0.2rem);
-  box-shadow: 0 0.8rem 3rem rgba(44, 44, 44, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
 .aesop-product-card__image-wrapper {
@@ -23,7 +23,7 @@
   aspect-ratio: 3/4;
   overflow: hidden;
   background-color: #F7F5F3;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .aesop-product-card__image {
@@ -31,11 +31,11 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.5s ease;
+  transition: transform 0.3s ease;
 }
 
 .aesop-product-card:hover .aesop-product-card__image {
-  transform: scale(1.02);
+  transform: none;
 }
 
 .aesop-product-card__badge {
@@ -77,11 +77,11 @@
 }
 
 .aesop-product-card__title {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 400;
   color: #2C2C2C;
   line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-family: inherit;
   text-transform: none;
   letter-spacing: normal;
@@ -104,6 +104,7 @@
 
 .aesop-product-card__price {
   margin-top: auto;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: baseline;
   gap: 0.8rem;
@@ -111,8 +112,8 @@
 }
 
 .aesop-product-card__price-regular {
-  font-size: 1.3rem;
-  color: #2C2C2C;
+  font-size: 1rem;
+  color: #666;
   font-weight: 400;
 }
 
@@ -126,6 +127,16 @@
   font-size: 1rem;
   color: #5A5A5A;
   margin-left: auto;
+}
+
+.aesop-product-card__badge--favoured {
+  display: inline-block;
+  margin-left: 0.8rem;
+  font-size: 0.8rem;
+  color: #A84B47;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 .aesop-product-card__variant-options {
@@ -154,9 +165,9 @@
 }
 
 .aesop-product-card__quick-add {
-  margin-top: 1.5rem;
-  opacity: 0;
-  transform: translateY(1rem);
+  margin-top: 0;
+  opacity: 1;
+  transform: translateY(0);
   transition: all 0.3s ease;
 }
 
@@ -167,22 +178,24 @@
 
 .aesop-product-card__quick-add-button {
   width: 100%;
-  padding: 1.2rem 2rem;
+  padding: 0.8rem 1.5rem;
   background-color: transparent;
-  border: 1px solid #2C2C2C;
-  color: #2C2C2C;
-  font-size: 1.2rem;
+  border: none;
+  color: #333;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.8px;
+  letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.25s ease;
   border-radius: 0;
   text-transform: none;
+  text-align: center;
+  position: relative;
 }
 
 .aesop-product-card__quick-add-button:hover {
-  background-color: #2C2C2C;
-  color: #FFFEF9;
+  color: #000;
+  text-decoration: underline;
 }
 
 .aesop-product-card__quick-add-button:disabled {
@@ -223,8 +236,8 @@
 /* Grid Layout Styles */
 .aesop-products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 4rem 3rem;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem 2rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -232,6 +245,20 @@
 
 .aesop-products-grid__item {
   margin: 0;
+}
+
+@media screen and (max-width: 990px) {
+  .aesop-products-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1.5rem;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .aesop-products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
 }
 
 /* Color Swatch Styles */

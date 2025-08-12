@@ -39,7 +39,8 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Body Cleansers",
+        "title": "Favourite formulations",
+        "description": "Timeless gift options including celebrated staples of skin, hand and body care, as well as fragrant delights for the home.",
         "heading_size": "h1",
         "collection": "all",
         "products_to_show": 4,
