@@ -1,0 +1,244 @@
+{{ 'section-aesop-hero.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  #AesopHero-{{ section.id }}::after {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign full_width = '100vw'
+  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
+  assign fetch_priority = 'auto'
+  if section.index == 1
+    assign fetch_priority = 'high'
+  endif
+-%}
+
+<div
+  id="AesopHero-{{ section.id }}"
+  class="aesop-hero {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+>
+  <div class="aesop-hero__brand">
+    <h1 class="aesop-hero__brand-name">Aesop.</h1>
+  </div>
+
+  <div class="aesop-hero__media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    {%- if section.settings.image != blank -%}
+      {{
+        section.settings.image
+        | image_url: width: 3840
+        | image_tag:
+          width: section.settings.image.width,
+          height: section.settings.image.height,
+          sizes: full_width,
+          widths: widths,
+          fetchpriority: fetch_priority,
+          class: 'aesop-hero__image'
+      }}
+    {%- else -%}
+      <div class="aesop-hero__product-showcase">
+        <div class="aesop-hero__product-container">
+          <div class="aesop-hero__product-bottle">
+            <div class="aesop-hero__bottle"></div>
+          </div>
+          <div class="aesop-hero__product-towel">
+            <div class="aesop-hero__towel"></div>
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="aesop-hero__content page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    <div class="aesop-hero__text-container">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'heading' -%}
+            <h2
+              class="aesop-hero__heading {{ block.settings.heading_size }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.heading }}
+            </h2>
+          {%- when 'text' -%}
+            <div class="aesop-hero__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+              <p>{{ block.settings.text }}</p>
+            </div>
+          {%- when 'buttons' -%}
+            <div
+              class="aesop-hero__buttons"
+              {{ block.shopify_attributes }}
+            >
+              {%- if block.settings.button_label_1 != blank -%}
+                <a
+                  {% if block.settings.button_link_1 == blank %}
+                    role="link" aria-disabled="true"
+                  {% else %}
+                    href="{{ block.settings.button_link_1 }}"
+                  {% endif %}
+                  class="aesop-hero__button button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label_1 | escape -}}
+                  <svg
+                    class="aesop-hero__button-arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              {%- endif -%}
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Aesop Hero",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background image"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "Image overlay opacity",
+      "default": 0
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "A shower towel for your shower gel",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            {
+              "value": "h2",
+              "label": "Small"
+            },
+            {
+              "value": "h1",
+              "label": "Medium"
+            },
+            {
+              "value": "h0",
+              "label": "Large"
+            },
+            {
+              "value": "hxl",
+              "label": "Extra large"
+            }
+          ],
+          "default": "h0",
+          "label": "Heading size"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "default": "Receive an Aesop shower towel with any online purchase of a 500mL Body Cleanser.",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            {
+              "value": "body",
+              "label": "Body"
+            },
+            {
+              "value": "subtitle",
+              "label": "Subtitle"
+            },
+            {
+              "value": "caption-with-letter-spacing",
+              "label": "Caption with letter spacing"
+            }
+          ],
+          "default": "body",
+          "label": "Text style"
+        }
+      ]
+    },
+    {
+      "type": "buttons",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label_1",
+          "default": "Explore Body Cleansers",
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "button_link_1",
+          "label": "Button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary_1",
+          "default": true,
+          "label": "Use outline button style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Aesop Hero",
+      "blocks": [
+        {
+          "type": "heading"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "buttons"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

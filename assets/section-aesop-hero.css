@@ -1,0 +1,335 @@
+.aesop-hero {
+  display: flex;
+  position: relative;
+  min-height: 100vh;
+  background-color: #F7F5F3;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.aesop-hero__brand {
+  position: absolute;
+  top: 4rem;
+  left: 4rem;
+  z-index: 10;
+}
+
+.aesop-hero__brand-name {
+  font-family: 'Times New Roman', serif;
+  font-size: 2.4rem;
+  font-weight: normal;
+  color: #333;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.aesop-hero__media {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aesop-hero__image {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Product showcase styles */
+.aesop-hero__product-showcase {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+}
+
+.aesop-hero__product-container {
+  position: relative;
+  width: 100%;
+  max-width: 50rem;
+  height: 60rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aesop-hero__product-bottle {
+  position: absolute;
+  right: 8rem;
+  top: 8rem;
+  z-index: 2;
+}
+
+.aesop-hero__bottle {
+  width: 16rem;
+  height: 24rem;
+  background: linear-gradient(135deg, #2C2C2C 0%, #1A1A1A 100%);
+  border-radius: 0.8rem;
+  position: relative;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
+}
+
+.aesop-hero__bottle::before {
+  content: '';
+  position: absolute;
+  top: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4rem;
+  height: 3rem;
+  background: #2C2C2C;
+  border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.aesop-hero__bottle::after {
+  content: 'Aesop';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  color: #F7F5F3;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  font-family: 'Times New Roman', serif;
+}
+
+.aesop-hero__product-towel {
+  position: absolute;
+  left: 4rem;
+  bottom: 12rem;
+  z-index: 1;
+}
+
+.aesop-hero__towel {
+  width: 24rem;
+  height: 16rem;
+  background: #E8E6E1;
+  border-radius: 0.4rem;
+  position: relative;
+  transform: rotate(-5deg);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+}
+
+.aesop-hero__towel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 0.2rem,
+    rgba(255, 255, 255, 0.3) 0.2rem,
+    rgba(255, 255, 255, 0.3) 0.4rem
+  );
+  border-radius: 0.4rem;
+}
+
+.aesop-hero__towel::after {
+  content: 'Aesop.';
+  position: absolute;
+  bottom: 1rem;
+  right: 2rem;
+  color: #666;
+  font-size: 1rem;
+  font-family: 'Times New Roman', serif;
+  font-weight: 400;
+}
+
+.aesop-hero__content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  width: 50%;
+  padding: 4rem;
+  padding-left: 8rem;
+}
+
+.aesop-hero__text-container {
+  max-width: 45rem;
+}
+
+.aesop-hero__heading {
+  font-family: 'Times New Roman', serif;
+  font-size: 4.8rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: #2C2C2C;
+  margin-bottom: 2.4rem;
+  letter-spacing: -0.01em;
+  max-width: 42rem;
+}
+
+.aesop-hero__text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #5A5A5A;
+  margin-bottom: 4rem;
+  max-width: 42rem;
+  font-weight: 400;
+}
+
+.aesop-hero__text p {
+  margin: 0;
+}
+
+.aesop-hero__buttons {
+  margin-top: 3rem;
+}
+
+.aesop-hero__button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1.4rem 2.8rem;
+  border: 1px solid #2C2C2C;
+  background: transparent;
+  color: #2C2C2C;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  text-transform: none;
+  transition: all 0.25s ease;
+  border-radius: 0;
+  font-family: inherit;
+  min-height: 4.8rem;
+}
+
+.aesop-hero__button:hover {
+  background-color: #2C2C2C;
+  color: #F7F5F3;
+  border-color: #2C2C2C;
+}
+
+.aesop-hero__button-arrow {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.aesop-hero__button:hover .aesop-hero__button-arrow {
+  transform: translateX(0.4rem);
+}
+
+/* Mobile styles */
+@media screen and (max-width: 749px) {
+  .aesop-hero {
+    flex-direction: column;
+    min-height: auto;
+    padding-bottom: 4rem;
+  }
+  
+  .aesop-hero__brand {
+    top: 2rem;
+    left: 2rem;
+  }
+  
+  .aesop-hero__brand-name {
+    font-size: 2rem;
+  }
+  
+  .aesop-hero__media {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    min-height: 30rem;
+    order: 1;
+  }
+  
+  .aesop-hero__content {
+    width: 100%;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+    order: 2;
+  }
+  
+  .aesop-hero__heading {
+    font-size: 3.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .aesop-hero__text {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+  
+  .aesop-hero__product-container {
+    height: 40rem;
+    max-width: 32rem;
+  }
+  
+  .aesop-hero__product-bottle {
+    right: 4rem;
+    top: 4rem;
+  }
+  
+  .aesop-hero__bottle {
+    width: 12rem;
+    height: 18rem;
+  }
+  
+  .aesop-hero__bottle::after {
+    font-size: 1rem;
+  }
+  
+  .aesop-hero__product-towel {
+    left: 2rem;
+    bottom: 8rem;
+  }
+  
+  .aesop-hero__towel {
+    width: 18rem;
+    height: 12rem;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .aesop-hero__heading {
+    font-size: 4rem;
+  }
+  
+  .aesop-hero__content {
+    padding-left: 6rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .aesop-hero__heading {
+    font-size: 5.6rem;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .aesop-hero__button {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .aesop-hero__button-arrow,
+  .aesop-hero__button {
+    transition: none;
+  }
+}
+
+/* Focus styles */
+.aesop-hero__button:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
