@@ -1,0 +1,178 @@
+/* Aesop Skincare Range Section Styles */
+.aesop-skincare-section {
+  background-color: #f8f7f4;
+}
+
+.aesop-skincare-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.aesop-skincare-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.aesop-skincare-text {
+  padding-right: 2rem;
+}
+
+.aesop-skincare-title {
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #2c2c2c;
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.aesop-skincare-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 90%;
+}
+
+.aesop-skincare-description p {
+  margin: 0;
+}
+
+.aesop-skincare-button-wrapper {
+  margin-top: 3rem;
+}
+
+.aesop-skincare-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 0;
+  font-size: 1rem;
+  color: #2c2c2c;
+  text-decoration: none;
+  border-bottom: 1px solid #2c2c2c;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.aesop-skincare-button:hover {
+  color: #666;
+  border-bottom-color: #666;
+}
+
+.aesop-skincare-button-arrow {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.aesop-skincare-button:hover .aesop-skincare-button-arrow {
+  transform: translateX(0.25rem);
+}
+
+.aesop-skincare-image {
+  position: relative;
+}
+
+.aesop-skincare-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #333;
+}
+
+.aesop-skincare-image-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.aesop-skincare-image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.aesop-skincare-image-placeholder {
+  aspect-ratio: 4/3;
+  background-color: #333;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aesop-skincare-image-placeholder svg {
+  width: 60%;
+  height: 60%;
+  opacity: 0.3;
+}
+
+/* Tablet styles */
+@media screen and (max-width: 990px) {
+  .aesop-skincare-content {
+    gap: 3rem;
+  }
+  
+  .aesop-skincare-title {
+    font-size: 3rem;
+  }
+  
+  .aesop-skincare-description {
+    font-size: 1rem;
+    max-width: 95%;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 750px) {
+  .aesop-skincare-container {
+    padding: 0 1.5rem;
+  }
+  
+  .aesop-skincare-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    min-height: auto;
+  }
+  
+  .aesop-skincare-text {
+    padding-right: 0;
+    order: 2;
+  }
+  
+  .aesop-skincare-image {
+    order: 1;
+  }
+  
+  .aesop-skincare-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .aesop-skincare-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .aesop-skincare-button-wrapper {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aesop-skincare-title {
+    font-size: 2rem;
+  }
+  
+  .aesop-skincare-description {
+    font-size: 0.9rem;
+  }
+  
+  .aesop-skincare-button {
+    font-size: 0.95rem;
+  }
+}
