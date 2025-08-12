@@ -1,3 +1,4 @@
+{{ 'aesop-product-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 
@@ -96,7 +97,7 @@
       <ul
         id="Slider-{{ section.id }}"
         data-id="{{ section.id }}"
-        class="grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
+        class="aesop-products-grid grid product-grid contains-card contains-card--product{% if settings.card_style == 'standard' %} contains-card--standard{% endif %} grid--{{ section.settings.columns_desktop }}-col-desktop{% if section.settings.collection == blank %} grid--2-col-tablet-down{% else %} grid--{{ section.settings.columns_mobile }}-col-tablet-down{% endif %}{% if show_mobile_slider or show_desktop_slider %} slider{% if show_desktop_slider %} slider--desktop{% endif %}{% if show_mobile_slider %} slider--tablet grid--peek{% endif %}{% endif %}"
         role="list"
         aria-label="{{ 'general.slider.name' | t }}"
       >
@@ -111,13 +112,13 @@
               {% endif %}
               <li
                 id="Slide-{{ section.id }}-{{ forloop.index }}"
-                class="grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+                class="aesop-products-grid__item grid__item{% if show_mobile_slider or show_desktop_slider %} slider__slide{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
                 {% if settings.animations_reveal_on_scroll %}
                   data-cascade
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                {% render 'card-product',
+                {% render 'aesop-product-card',
                   card_product: product,
                   media_aspect_ratio: section.settings.image_ratio,
                   image_shape: section.settings.image_shape,
@@ -125,9 +126,8 @@
                   show_secondary_image: section.settings.show_secondary_image,
                   show_vendor: section.settings.show_vendor,
                   show_rating: section.settings.show_rating,
-                  skip_styles: skip_card_product_styles,
                   section_id: section.id,
-                  quick_add: section.settings.quick_add
+                  show_quick_add: true
                 %}
               </li>
               {%- assign skip_card_product_styles = true -%}
@@ -236,11 +236,11 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.featured-collection.settings.products_to_show.label"
-    },     
+    },
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_text.content"
-    },   
+    },
     {
       "type": "inline_richtext",
       "id": "title",
@@ -284,7 +284,7 @@
       "type": "checkbox",
       "id": "show_description",
       "label": "t:sections.featured-collection.settings.show_description.label",
-      "default": false   
+      "default": false
     },
     {
       "type": "select",
@@ -309,7 +309,7 @@
     {
       "type": "header",
       "content": "t:sections.featured-collection.settings.header_collection.content"
-    },    
+    },
     {
       "type": "range",
       "id": "columns_desktop",
@@ -319,7 +319,7 @@
       "default": 4,
       "label": "t:sections.featured-collection.settings.columns_desktop.label"
     },
-        {
+    {
       "type": "checkbox",
       "id": "enable_desktop_slider",
       "label": "t:sections.featured-collection.settings.enable_desktop_slider.label",
@@ -357,7 +357,7 @@
         }
       ],
       "default": "solid"
-    }, 
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
@@ -487,13 +487,13 @@
           "label": "t:sections.featured-collection.settings.columns_mobile.options__2.label"
         }
       ]
-    },    
+    },
     {
       "type": "checkbox",
       "id": "swipe_on_mobile",
       "default": false,
       "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
-    },          
+    },
     {
       "type": "header",
       "content": "t:sections.all.padding.section_padding_heading"

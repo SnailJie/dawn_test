@@ -1,0 +1,379 @@
+/* Aesop Header Styles */
+
+.aesop-header {
+  background-color: #FFFEF9;
+  border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.aesop-header__inner {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  max-width: 140rem;
+  margin: 0 auto;
+}
+
+.aesop-header__logo {
+  justify-self: start;
+}
+
+.aesop-header__logo-link {
+  text-decoration: none;
+  font-family: 'Times New Roman', serif;
+  font-size: 2.4rem;
+  font-weight: normal;
+  color: #2C2C2C;
+  letter-spacing: -0.02em;
+  transition: opacity 0.25s ease;
+}
+
+.aesop-header__logo-link:hover {
+  opacity: 0.7;
+}
+
+.aesop-header__nav {
+  justify-self: center;
+}
+
+.aesop-header__menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 4rem;
+}
+
+.aesop-header__menu-item {
+  position: relative;
+}
+
+.aesop-header__menu-link {
+  text-decoration: none;
+  color: #2C2C2C;
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  padding: 0.8rem 0;
+  position: relative;
+  transition: opacity 0.25s ease;
+  display: block;
+}
+
+.aesop-header__menu-link:hover {
+  opacity: 0.7;
+}
+
+.aesop-header__menu-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #2C2C2C;
+  transition: width 0.3s ease;
+}
+
+.aesop-header__menu-link:hover::after {
+  width: 100%;
+}
+
+.aesop-header__actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.aesop-header__search-toggle,
+.aesop-header__account-link,
+.aesop-header__cart-toggle {
+  background: none;
+  border: none;
+  color: #2C2C2C;
+  cursor: pointer;
+  padding: 0.8rem;
+  transition: opacity 0.25s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aesop-header__search-toggle:hover,
+.aesop-header__account-link:hover,
+.aesop-header__cart-toggle:hover {
+  opacity: 0.7;
+}
+
+.aesop-header__icon {
+  width: 1.8rem;
+  height: 1.8rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.aesop-header__cart-count {
+  position: absolute;
+  top: -0.5rem;
+  right: -0.5rem;
+  background-color: #2C2C2C;
+  color: #FFFEF9;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.3rem 0.5rem;
+  border-radius: 50%;
+  min-width: 1.6rem;
+  text-align: center;
+}
+
+/* Dropdown Menu Styles */
+.aesop-header__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #FFFEF9;
+  border: 1px solid rgba(44, 44, 44, 0.1);
+  border-top: none;
+  min-width: 20rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  padding: 2rem 0;
+  margin-top: 0.5rem;
+}
+
+.aesop-header__menu-item:hover .aesop-header__dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.aesop-header__dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aesop-header__dropdown-item {
+  margin: 0;
+}
+
+.aesop-header__dropdown-link {
+  display: block;
+  padding: 0.8rem 2rem;
+  color: #5A5A5A;
+  text-decoration: none;
+  font-size: 1.2rem;
+  letter-spacing: 0.5px;
+  transition: all 0.25s ease;
+}
+
+.aesop-header__dropdown-link:hover {
+  background-color: #F7F5F3;
+  color: #2C2C2C;
+}
+
+/* Mobile Menu Styles */
+.aesop-header__mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #2C2C2C;
+  cursor: pointer;
+  padding: 0.8rem;
+}
+
+.aesop-header__mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #FFFEF9;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 2000;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.aesop-header__mobile-menu.is-open {
+  transform: translateX(0);
+}
+
+.aesop-header__mobile-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+}
+
+.aesop-header__mobile-menu-close {
+  background: none;
+  border: none;
+  color: #2C2C2C;
+  cursor: pointer;
+  padding: 0.8rem;
+}
+
+.aesop-header__mobile-nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.aesop-header__mobile-nav-item {
+  margin-bottom: 1.5rem;
+}
+
+.aesop-header__mobile-nav-link {
+  display: block;
+  color: #2C2C2C;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  letter-spacing: 0.5px;
+  transition: opacity 0.25s ease;
+}
+
+.aesop-header__mobile-nav-link:hover {
+  opacity: 0.7;
+}
+
+/* Search Bar Styles */
+.aesop-header__search {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #F7F5F3;
+  border-bottom: 1px solid rgba(44, 44, 44, 0.1);
+  padding: 2rem 3rem;
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.aesop-header__search.is-open {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.aesop-header__search-form {
+  max-width: 60rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+.aesop-header__search-input {
+  width: 100%;
+  padding: 1.5rem 5rem 1.5rem 2rem;
+  border: 1px solid rgba(44, 44, 44, 0.2);
+  background-color: #FFFEF9;
+  font-size: 1.4rem;
+  color: #2C2C2C;
+  border-radius: 0;
+}
+
+.aesop-header__search-input:focus {
+  outline: none;
+  border-color: #2C2C2C;
+}
+
+.aesop-header__search-submit {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #2C2C2C;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 989px) {
+  .aesop-header__inner {
+    grid-template-columns: auto 1fr auto;
+    padding: 1.5rem 2rem;
+  }
+
+  .aesop-header__nav {
+    display: none;
+  }
+
+  .aesop-header__mobile-menu-toggle {
+    display: block;
+  }
+
+  .aesop-header__logo {
+    justify-self: center;
+    order: 2;
+  }
+
+  .aesop-header__mobile-menu-toggle {
+    order: 1;
+  }
+
+  .aesop-header__actions {
+    order: 3;
+    gap: 1rem;
+  }
+
+  .aesop-header__search {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .aesop-header__inner {
+    padding: 1rem 1.5rem;
+  }
+
+  .aesop-header__logo-link {
+    font-size: 2rem;
+  }
+
+  .aesop-header__actions {
+    gap: 0.5rem;
+  }
+
+  .aesop-header__icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .aesop-header,
+  .aesop-header__menu-link::after,
+  .aesop-header__dropdown,
+  .aesop-header__mobile-menu,
+  .aesop-header__search {
+    transition: none;
+  }
+}
+
+/* Focus Styles */
+.aesop-header__menu-link:focus-visible,
+.aesop-header__search-toggle:focus-visible,
+.aesop-header__account-link:focus-visible,
+.aesop-header__cart-toggle:focus-visible,
+.aesop-header__mobile-menu-toggle:focus-visible {
+  outline: 2px solid #2C2C2C;
+  outline-offset: 2px;
+}

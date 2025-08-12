@@ -1,7 +1,14 @@
+{{ 'aesop-header.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'aesop-header.js' | asset_url }}" defer="defer"></script>
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+<link
+  rel="stylesheet"
+  href="{{ 'component-cart-notification.css' | asset_url }}"
+  media="print"
+  onload="this.media='all'"
+>
 
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -10,7 +17,6 @@
 {%- if section.settings.menu_type_desktop == 'mega' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-
 
 <style>
   header-drawer {
@@ -114,184 +120,199 @@
   endif
 %}
 
-<{{ header_tag }} {% if header_tag == 'sticky-header' %}data-sticky-type="{{ section.settings.sticky_header_type }}"{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
-  {%- liquid
-    assign social_links = false
-    assign localization_forms = false
+<{{ header_tag }}
+  {% if header_tag == 'sticky-header' %}
+    data-sticky-type="{{ section.settings.sticky_header_type }}"
+  {% endif %}
+  class="aesop-header color-{{ section.settings.color_scheme }}"
+>
+  <header class="aesop-header__inner">
+    <!-- Mobile Menu Toggle -->
+    <button class="aesop-header__mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation menu">
+      <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
 
-    if settings.social_twitter_link != blank or settings.social_facebook_link != blank or settings.social_pinterest_link != blank or settings.social_instagram_link != blank or settings.social_youtube_link != blank or settings.social_vimeo_link != blank or settings.social_tiktok_link != blank or settings.social_tumblr_link != blank or settings.social_snapchat_link != blank
-      assign social_links = true
-    endif
-
-    if localization.available_countries.size > 1 and section.settings.enable_country_selector or section.settings.enable_language_selector and localization.available_languages.size > 1
-      assign localization_forms = true
-    endif
-  -%}
-  <header class="header header--{{ section.settings.logo_position }} header--mobile-{{ section.settings.mobile_logo_position }} page-width{% if section.settings.menu_type_desktop == 'drawer' %} drawer-menu{% endif %}{% if section.settings.menu != blank %} header--has-menu{% endif %}{% if has_app_block %} header--has-app{% endif %}{% if social_links %} header--has-social{% endif %}{% if shop.customer_accounts_enabled %} header--has-account{% endif %}{% if localization_forms %} header--has-localizations{% endif %}">
-    {%- liquid
-      if section.settings.menu != blank
-        render 'header-drawer'
-      endif
-
-      if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-        render 'header-search', input_id: 'Search-In-Modal-1'
-      endif
-    -%}
-
-    {%- if section.settings.logo_position != 'middle-center' -%}
+    <!-- Logo -->
+    <div class="aesop-header__logo">
       {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
+        <h1>
       {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo motion-reduce',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    {%- liquid
-      if section.settings.menu != blank
-        if section.settings.menu_type_desktop == 'dropdown'
-          render 'header-dropdown-menu'
-        elsif section.settings.menu_type_desktop != 'drawer'
-          render 'header-mega-menu'
-        endif
-      endif
-    %}
-
-    {%- if section.settings.logo_position == 'middle-center' -%}
-      {%- if request.page_type == 'index' -%}
-        <h1 class="header__heading">
-      {%- endif -%}
-          <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-            {%- if settings.logo != blank -%}
-              <div class="header__heading-logo-wrapper">
-                {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-                {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-                {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
-                {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-                {{ settings.logo | image_url: width: 600 | image_tag:
-                  class: 'header__heading-logo',
-                  widths: widths,
-                  height: logo_height,
-                  width: settings.logo_width,
-                  alt: logo_alt,
-                  sizes: sizes,
-                  preload: true
-                }}
-              </div>
-            {%- else -%}
-              <span class="h2">{{ shop.name }}</span>
-            {%- endif -%}
-          </a>
-      {%- if request.page_type == 'index' -%}
-        </h1>
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
-      <div class="desktop-localization-wrapper">
-        {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderCountryLabel">{{ 'localization.country_label' | t }}</h2>
-                {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
-        {% endif %}
-
-        {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-          <localization-form class="small-hide medium-hide" data-prevent-hide>
-            {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-              <div>
-                <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-                {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-              </div>
-            {%- endform -%}
-          </localization-form>
+      <a href="{{ routes.root_url }}" class="aesop-header__logo-link">
+        {%- if settings.logo != blank -%}
+          {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
+          {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
+          {{
+            settings.logo
+            | image_url: width: 300
+            | image_tag:
+              class: 'aesop-header__logo-image',
+              width: settings.logo_width,
+              height: logo_height,
+              alt: logo_alt,
+              preload: true
+          }}
+        {%- else -%}
+          Aesop.
         {%- endif -%}
-      </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
+      </a>
+      {%- if request.page_type == 'index' -%}
+        </h1>
+      {%- endif -%}
+    </div>
 
+    <!-- Desktop Navigation -->
+    {%- if section.settings.menu != blank -%}
+      <nav class="aesop-header__nav" role="navigation" aria-label="Main navigation">
+        <ul class="aesop-header__menu">
+          {%- for link in section.settings.menu.links -%}
+            <li class="aesop-header__menu-item">
+              <a
+                href="{{ link.url }}"
+                class="aesop-header__menu-link"
+                {% if link.active %}
+                  aria-current="page"
+                {% endif %}
+              >
+                {{ link.title }}
+              </a>
+              {%- if link.links != blank -%}
+                <div class="aesop-header__dropdown">
+                  <ul class="aesop-header__dropdown-menu">
+                    {%- for child_link in link.links -%}
+                      <li class="aesop-header__dropdown-item">
+                        <a
+                          href="{{ child_link.url }}"
+                          class="aesop-header__dropdown-link"
+                          {% if child_link.active %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ child_link.title }}
+                        </a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              {%- endif -%}
+            </li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+
+    <!-- Header Actions -->
+    <div class="aesop-header__actions">
+      <!-- Search Toggle -->
+      <button class="aesop-header__search-toggle" id="search-toggle" aria-label="Open search">
+        <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Account Link -->
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          class="aesop-header__account-link"
+          aria-label="{%- if customer -%}{{ 'customer.account_fallback' | t }}{%- else -%}{{ 'customer.log_in' | t }}{%- endif -%}"
           rel="nofollow"
         >
-          {%- if section.settings.enable_customer_avatar -%}
-            <account-icon>
-              {%- if customer and customer.has_avatar? -%}
-                {{ customer | avatar }}
-              {%- else -%}
-                <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-              {%- endif -%}
-            </account-icon>
-          {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
-          {%- endif -%}
-          <span class="visually-hidden">
-            {%- liquid
-              if customer
-                echo 'customer.account_fallback' | t
-              else
-                echo 'customer.log_in' | t
-              endif
-            -%}
-          </span>
+          <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21M16 7C16 9.20914 14.2091 11 12 11C9.79086 11 8 9.20914 8 7C8 4.79086 9.79086 3 12 3C14.2091 3 16 4.79086 16 7Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </a>
       {%- endif -%}
 
-      {%- for block in section.blocks -%}
-        {%- case block.type -%}
-          {%- when '@app' -%}
-            {% render block %}
-        {%- endcase -%}
-      {%- endfor -%}
-
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-          {% if cart == empty %}
-            <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
-          {% else %}
-            <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
-          {% endif %}
-        <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+      <!-- Cart Toggle -->
+      <a
+        href="{{ routes.cart_url }}"
+        class="aesop-header__cart-toggle"
+        id="cart-icon-bubble"
+        aria-label="{{ 'templates.cart.cart' | t }}"
+      >
+        <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 22C9.55228 22 10 21.5523 10 21C10 20.4477 9.55228 20 9 20C8.44772 20 8 20.4477 8 21C8 21.5523 8.44772 22 9 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 22C20.5523 22 21 21.5523 21 21C21 20.4477 20.5523 20 20 20C19.4477 20 19 20.4477 19 21C19 21.5523 19.4477 22 20 22Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1 1H5L7.68 14.39C7.77144 14.8504 8.02191 15.264 8.38755 15.5583C8.75318 15.8526 9.2107 16.009 9.68 16H19.4C19.8693 16.009 20.3268 15.8526 20.6925 15.5583C21.0581 15.264 21.3086 14.8504 21.4 14.39L23 6H6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         {%- if cart != empty -%}
-          <div class="cart-count-bubble">
-            {%- if cart.item_count < 100 -%}
-              <span aria-hidden="true">{{ cart.item_count }}</span>
-            {%- endif -%}
-            <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
-          </div>
+          <span class="aesop-header__cart-count">{{ cart.item_count }}</span>
         {%- endif -%}
       </a>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="aesop-header__mobile-menu" id="mobile-menu">
+      <div class="aesop-header__mobile-menu-header">
+        <a href="{{ routes.root_url }}" class="aesop-header__logo-link">
+          {%- if settings.logo != blank -%}
+            {{
+              settings.logo
+              | image_url: width: 200
+              | image_tag: class: 'aesop-header__logo-image', alt: settings.logo.alt
+              | default: shop.name
+              | escape
+            }}
+          {%- else -%}
+            Aesop.
+          {%- endif -%}
+        </a>
+        <button class="aesop-header__mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">
+          <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      {%- if section.settings.menu != blank -%}
+        <nav role="navigation" aria-label="Mobile navigation">
+          <ul class="aesop-header__mobile-nav-menu">
+            {%- for link in section.settings.menu.links -%}
+              <li class="aesop-header__mobile-nav-item">
+                <a
+                  href="{{ link.url }}"
+                  class="aesop-header__mobile-nav-link"
+                  {% if link.active %}
+                    aria-current="page"
+                  {% endif %}
+                >
+                  {{ link.title }}
+                </a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        </nav>
+      {%- endif -%}
+    </div>
+
+    <!-- Search Bar -->
+    <div class="aesop-header__search" id="search-bar">
+      <form class="aesop-header__search-form" action="{{ routes.search_url }}" method="get" role="search">
+        <input
+          class="aesop-header__search-input"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.search' | t }}"
+          aria-label="{{ 'general.search.search' | t }}"
+          autocomplete="off"
+        >
+        <button type="submit" class="aesop-header__search-submit" aria-label="{{ 'general.search.submit' | t }}">
+          <svg class="aesop-header__icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
     </div>
   </header>
 </{{ header_tag }}>
 
-{%- if settings.cart_type == "notification" -%}
-  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
+{%- if settings.cart_type == 'notification' -%}
+  {%- render 'cart-notification',
+    color_scheme: section.settings.color_scheme,
+    desktop_menu_type: section.settings.menu_type_desktop
+  -%}
 {%- endif -%}
 
 {% javascript %}
@@ -302,7 +323,9 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
-      this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+      this.headerIsAlwaysSticky =
+        this.getAttribute('data-sticky-type') === 'always' ||
+        this.getAttribute('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
 
       this.setHeaderHeight();
@@ -311,14 +334,14 @@
 
       if (this.headerIsAlwaysSticky) {
         this.header.classList.add('shopify-section-header-sticky');
-      };
+      }
 
       this.currentScrollTop = 0;
       this.preventReveal = false;
       this.predictiveSearch = this.querySelector('predictive-search');
 
       this.onScrollHandler = this.onScroll.bind(this);
-      this.hideHeaderOnScrollUp = () => this.preventReveal = true;
+      this.hideHeaderOnScrollUp = () => (this.preventReveal = true);
 
       this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.addEventListener('scroll', this.onScrollHandler, false);
@@ -394,7 +417,7 @@
 
     closeMenuDisclosure() {
       this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-      this.disclosures.forEach(disclosure => disclosure.close());
+      this.disclosures.forEach((disclosure) => disclosure.close());
     }
 
     closeSearchModal() {
@@ -430,7 +453,7 @@
 </script>
 
 {%- if request.page_type == 'index' -%}
-  {% assign potential_action_target = request.origin | append: routes.search_url | append: "?q={search_term_string}" %}
+  {% assign potential_action_target = request.origin | append: routes.search_url | append: '?q={search_term_string}' %}
   <script type="application/ld+json">
     {
       "@context": "http://schema.org",
@@ -492,7 +515,7 @@
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
-    },    
+    },
     {
       "type": "link_list",
       "id": "menu",
@@ -574,14 +597,14 @@
       "id": "enable_country_selector",
       "default": true,
       "label": "t:sections.header.settings.enable_country_selector.label",
-      "info":"t:sections.header.settings.enable_country_selector.info"
+      "info": "t:sections.header.settings.enable_country_selector.info"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
       "default": true,
       "label": "t:sections.header.settings.enable_language_selector.label",
-      "info":"t:sections.header.settings.enable_language_selector.info"
+      "info": "t:sections.header.settings.enable_language_selector.info"
     },
     {
       "type": "checkbox",
