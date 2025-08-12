@@ -7,97 +7,168 @@
 
 <nav class="header__inline-menu">
   <ul class="list-menu list-menu--inline" role="list">
-    {%- for link in section.settings.menu.links -%}
-      <li>
-        {%- if link.links != blank -%}
-          <header-menu>
-            <details id="Details-HeaderMenu-{{ forloop.index }}">
-              <summary
-                id="HeaderMenu-{{ link.handle }}"
-                class="header__menu-item list-menu__item link focus-inset"
-              >
-                <span
-                  {%- if link.child_active %}
-                    class="header__active-menu-item"
-                  {% endif %}
-                >
-                  {{- link.title | escape -}}
-                </span>
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </summary>
-              <ul
-                id="HeaderMenu-MenuList-{{ forloop.index }}"
-                class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
-                role="list"
-                tabindex="-1"
-              >
-                {%- for childlink in link.links -%}
-                  <li>
-                    {%- if childlink.links == blank -%}
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if childlink.current %} list-menu__item--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
-                    {%- else -%}
-                      <details id="Details-HeaderSubMenu-{{ link.handle }}-{{ childlink.handle }}">
-                        <summary
-                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                          class="header__menu-item link link--text list-menu__item focus-inset caption-large"
-                        >
-                          <span>{{ childlink.title | escape }}</span>
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </summary>
-                        <ul
-                          id="HeaderMenu-SubMenuList-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                          class="header__submenu list-menu motion-reduce"
-                        >
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="header__menu-item list-menu__item link link--text focus-inset caption-large{% if grandchildlink.current %} list-menu__item--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </details>
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </details>
-          </header-menu>
-        {%- else -%}
-          <a
-            id="HeaderMenu-{{ link.handle }}"
-            href="{{ link.url }}"
-            class="header__menu-item list-menu__item link link--text focus-inset"
-            {% if link.current %}
-              aria-current="page"
-            {% endif %}
+    <!-- WOMEN Navigation -->
+    <li>
+      <header-menu>
+        <details id="Details-HeaderMenu-Women">
+          <summary
+            id="HeaderMenu-women"
+            class="header__menu-item list-menu__item link focus-inset"
           >
-            <span
-              {%- if link.current %}
-                class="header__active-menu-item"
-              {% endif %}
-            >
-              {{- link.title | escape -}}
-            </span>
-          </a>
-        {%- endif -%}
-      </li>
-    {%- endfor -%}
+            <span>WOMEN</span>
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <ul
+            id="HeaderMenu-MenuList-Women"
+            class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+            role="list"
+            tabindex="-1"
+          >
+            <li>
+              <a
+                href="{{ routes.collections_url }}/coordinated-set"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Coordinated set
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/blouse-tops"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Blouse & Tops
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/coats-jackets"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Coats & Jackets
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/suits"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Suits
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/dresses"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Dresses
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/cheongsam-women"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Cheongsam
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/tweeds"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Tweeds
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/vests"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Vests
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/women"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                View All
+              </a>
+            </li>
+          </ul>
+        </details>
+      </header-menu>
+    </li>
+
+    <!-- MEN Navigation -->
+    <li>
+      <header-menu>
+        <details id="Details-HeaderMenu-Men">
+          <summary
+            id="HeaderMenu-men"
+            class="header__menu-item list-menu__item link focus-inset"
+          >
+            <span>MEN</span>
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </summary>
+          <ul
+            id="HeaderMenu-MenuList-Men"
+            class="header__submenu list-menu list-menu--disclosure color-{{ section.settings.menu_color_scheme }} gradient caption-large motion-reduce global-settings-popup"
+            role="list"
+            tabindex="-1"
+          >
+            <li>
+              <a
+                href="{{ routes.collections_url }}/men-suits"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Suits
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/men-jackets"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Jackets
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/men-shirts"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Shirts
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/tang-suits"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Tang Suits
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/cheongsam-men"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                Cheongsam
+              </a>
+            </li>
+            <li>
+              <a
+                href="{{ routes.collections_url }}/men"
+                class="header__menu-item list-menu__item link link--text focus-inset caption-large"
+              >
+                View All
+              </a>
+            </li>
+          </ul>
+        </details>
+      </header-menu>
+    </li>
   </ul>
 </nav>
