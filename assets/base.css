@@ -1004,18 +1004,33 @@ summary::-webkit-details-marker {
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
   
-  /* Custom styling for 4-column product grid to fill full width */
+  /* Custom styling for 4-column product grid - maximize product width */
   .product-grid.grid--4-col-desktop .grid__item {
-    width: calc(25% - 3px);
-    max-width: calc(25% - 3px);
-    flex-grow: 1;
+    width: calc(25% - 1px) !important;
+    max-width: calc(25% - 1px) !important;
+    flex: 1 1 calc(25% - 1px) !important;
+    margin: 0 0.5px !important;
   }
   
   /* Tablet view for 4-column grid */
   .product-grid.grid--4-col-tablet .grid__item {
-    width: calc(25% - 3px);
-    max-width: calc(25% - 3px);
-    flex-grow: 1;
+    width: calc(25% - 1px) !important;
+    max-width: calc(25% - 1px) !important;
+    flex: 1 1 calc(25% - 1px) !important;
+    margin: 0 0.5px !important;
+  }
+  
+  /* Ultra-minimal spacing for 4-column grid */
+  .product-grid.grid--4-col-desktop {
+    gap: 1px !important;
+    --grid-desktop-horizontal-spacing: 1px !important;
+    --grid-desktop-vertical-spacing: 1px !important;
+    margin: 0 -0.5px !important;
+  }
+  
+  /* Override default grid spacing for product grids */
+  .product-grid.grid--4-col-desktop .grid__item:not(:last-child) {
+    margin-right: 1px !important;
   }
 
   .grid--3-col-desktop .grid__item {
