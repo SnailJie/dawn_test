@@ -73,6 +73,111 @@
         "padding_bottom": 80
       }
     },
+    "aesop_product_grid": {
+      "type": "aesop-product-grid",
+      "blocks": {
+        "grid_item_1": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Hand Washes & Balms",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_2": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Body Cleansers & Scrubs",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_3": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Fragrance",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_4": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Gifts For Travel",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_5": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Body Balms & Oils",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_6": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Hydrators & Moisturisers",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_7": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Treat & Masque",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_8": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Hand & Body Care Kits",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_9": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Skin Care Kits",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        },
+        "grid_item_10": {
+          "type": "grid_item",
+          "settings": {
+            "overlay_text": "Incense",
+            "overlay_subtitle": "",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "grid_item_1",
+        "grid_item_2",
+        "grid_item_3",
+        "grid_item_4",
+        "grid_item_5",
+        "grid_item_6",
+        "grid_item_7",
+        "grid_item_8",
+        "grid_item_9",
+        "grid_item_10"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "aesop_skincare_range": {
       "type": "aesop-skincare-range",
       "settings": {
@@ -90,6 +195,7 @@
   "order": [
     "aesop_hero",
     "featured_collection",
+    "aesop_product_grid",
     "aesop_skincare_range"
   ]
 }
