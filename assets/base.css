@@ -1003,6 +1003,20 @@ summary::-webkit-details-marker {
     width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
     max-width: calc(25% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
   }
+  
+  /* Custom styling for 4-column product grid to fill full width */
+  .product-grid.grid--4-col-desktop .grid__item {
+    width: calc(25% - 3px);
+    max-width: calc(25% - 3px);
+    flex-grow: 1;
+  }
+  
+  /* Tablet view for 4-column grid */
+  .product-grid.grid--4-col-tablet .grid__item {
+    width: calc(25% - 3px);
+    max-width: calc(25% - 3px);
+    flex-grow: 1;
+  }
 
   .grid--3-col-desktop .grid__item {
     width: calc(33.33% - var(--grid-desktop-horizontal-spacing) * 2 / 3);
