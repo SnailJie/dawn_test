@@ -107,7 +107,7 @@
 }
 
 .aesop-product-grid__title {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* 减小字体大小 */
   font-weight: 400;
   line-height: 1.3;
   margin: 0 0 0.5rem 0;
@@ -116,24 +116,26 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-right: 1rem; /* 添加右侧padding防止箭头超出 */
 }
 
 .aesop-product-grid__arrow {
   display: inline-flex;
   align-items: center;
-  margin-left: 0.8rem;
+  margin-left: 0.4rem; /* 减少左边距使箭头更靠近文字 */
   color: rgb(var(--color-foreground));
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0.7;
+  position: relative; /* 添加相对定位 */
 }
 
 .aesop-product-grid__arrow .icon {
-  width: 1.4rem;
-  height: 1rem;
+  width: 1.2rem; /* 减小箭头尺寸 */
+  height: 0.9rem;
 }
 
 .aesop-product-grid__item:hover .aesop-product-grid__arrow {
-  transform: translateX(0.4rem);
+  transform: translateX(0.2rem); /* 减少hover时的移动距离 */
   opacity: 1;
 }
 
