@@ -37,6 +37,10 @@
   background-repeat: no-repeat;
 }
 
+.aesop-hero__image {
+  display: none; /* Hide the img tag when using as background */
+}
+
 
 
 /* Product showcase styles */
