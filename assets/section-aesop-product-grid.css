@@ -123,7 +123,7 @@
 .aesop-product-grid__arrow {
   display: inline-flex;
   align-items: center;
-  margin-left: 0.4rem; /* 减少左边距使箭头更靠近文字 */
+  margin-left: 0.2rem; /* 进一步减少左边距使箭头更靠近文字 */
   color: rgb(var(--color-foreground));
   transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   opacity: 0.7;
