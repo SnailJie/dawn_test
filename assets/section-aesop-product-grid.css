@@ -16,20 +16,24 @@
 .aesop-product-grid__wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 3rem 2rem;
+  gap: 3rem 1rem;
   margin-top: 3rem;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 140rem;
 }
 
 @media screen and (min-width: 750px) {
   .aesop-product-grid__wrapper {
     grid-template-columns: repeat(5, 1fr);
-    gap: 3rem 1.5rem;
+    gap: 3rem 1rem;
   }
 }
 
 @media screen and (min-width: 990px) {
   .aesop-product-grid__wrapper {
-    gap: 3rem 2rem;
+    gap: 3rem 1.2rem;
   }
 }
 
@@ -56,9 +60,9 @@
 .aesop-product-grid__image-wrapper {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/5;
+  aspect-ratio: 1;
   overflow: hidden;
-  border-radius: 0.8rem;
+  border-radius: 0;
   margin-bottom: 1.5rem;
 }
 
@@ -181,7 +185,7 @@
 .aesop-product-grid__link:focus {
   outline: 2px solid rgb(var(--color-foreground));
   outline-offset: 0.3rem;
-  border-radius: 0.8rem;
+  border-radius: 0;
 }
 
 .aesop-product-grid__link:focus:not(:focus-visible) {
@@ -238,7 +242,7 @@
   right: 0;
   bottom: 0;
   background: transparent;
-  border-radius: 0.8rem;
+  border-radius: 0;
   transition: box-shadow 0.3s ease;
   pointer-events: none;
   z-index: -1;
@@ -248,7 +252,7 @@
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
 }
 
-/* 确保图片圆角不会被溢出 */
+/* 确保图片边界清晰 */
 .aesop-product-grid__image-wrapper::after {
   content: '';
   position: absolute;
@@ -256,6 +260,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 0.8rem;
+  border-radius: 0;
   pointer-events: none;
 }
