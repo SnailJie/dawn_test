@@ -1,0 +1,50 @@
+/* Custom styles for Aesop Product Card */
+
+.aesop-product-card__title {
+  font-size: 1.3rem; /* Increased from 1.1rem */
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+}
+
+.aesop-product-card__price-regular {
+  font-size: 0.8rem; /* Decreased from 0.9rem */
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 990px) {
+  .aesop-product-card__title {
+    font-size: 1.2rem; /* Increased from 1rem */
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .aesop-product-card__title {
+    font-size: 1.1rem; /* Increased from 0.9rem */
+  }
+  
+  .aesop-product-card__price-regular {
+    font-size: 0.7rem; /* Decreased from 0.8rem */
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .aesop-product-card__title {
+    font-size: 1rem; /* Increased from 0.8rem */
+  }
+  
+  .aesop-product-card__price-regular {
+    font-size: 0.65rem; /* Decreased from 0.7rem */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .aesop-product-card__title {
+    font-size: 1.2rem; /* Increased from 1rem */
+  }
+  
+  .aesop-product-card__price-regular {
+    font-size: 0.7rem; /* Decreased from 0.8rem */
+  }
+}

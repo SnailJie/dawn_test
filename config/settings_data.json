@@ -15,11 +15,11 @@
       "color_schemes": {
         "scheme-1": {
           "settings": {
-            "background": "#FFFEF9",
+            "background": "#FFFEF3",
             "background_gradient": "",
             "text": "#2C2C2C",
             "button": "#2C2C2C",
-            "button_label": "#FFFEF9",
+            "button_label": "#FFFEF3",
             "secondary_button_label": "#2C2C2C",
             "shadow": "#2C2C2C"
           }
