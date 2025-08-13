@@ -80,6 +80,7 @@
         "grid_item_1": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Hand Washes & Balms",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
@@ -88,6 +89,7 @@
         "grid_item_2": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Body Cleansers & Scrubs",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
@@ -96,6 +98,7 @@
         "grid_item_3": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Fragrance",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
@@ -112,6 +115,7 @@
         "grid_item_5": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Body Balms & Oils",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
@@ -128,6 +132,7 @@
         "grid_item_7": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Treat & Masque",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
@@ -152,6 +157,7 @@
         "grid_item_10": {
           "type": "grid_item",
           "settings": {
+            "image": "shopify://shop_images/Aesop_Category_Body_Hand_Care_Primary_Full_Bleed_Mobile_640x640px.webp",
             "overlay_text": "Incense",
             "overlay_subtitle": "",
             "link": "shopify://collections/all"
