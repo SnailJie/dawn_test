@@ -316,11 +316,11 @@
       "onboarding_content": "向您的客户提供一份博客文章的摘要"
     },
     "featured_collection": {
-      "view_all": "查看全部",
+      "view_all": "VIEW ALL",
       "view_all_label": "查看 {{ collection_name }} 产品系列中的所有产品"
     },
     "collection_list": {
-      "view_all": "查看全部"
+      "view_all": "VIEW ALL"
     },
     "collection_template": {
       "title": "收藏",
