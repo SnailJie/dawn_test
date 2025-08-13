@@ -153,7 +153,8 @@
 
 @media screen and (min-width: 750px) {
   .aesop-product-grid__title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
+    text-align: center;
   }
   
   .aesop-product-grid__subtitle {
