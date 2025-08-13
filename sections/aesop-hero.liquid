@@ -6,37 +6,21 @@
   }
 {%- endstyle -%}
 
-{%- liquid
-  assign full_width = '100vw'
-  assign widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-  assign fetch_priority = 'auto'
-  if section.index == 1
-    assign fetch_priority = 'high'
-  endif
--%}
-
 <div
   id="AesopHero-{{ section.id }}"
   class="aesop-hero {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
 >
   <div class="aesop-hero__brand">
-    <h1 class="aesop-hero__brand-name">Aesop.</h1>
+    <h1 class="aesop-hero__brand-name">绣华莊</h1>
   </div>
 
-  <div class="aesop-hero__media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+  <div
+    class="aesop-hero__media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
     {%- if section.settings.image != blank -%}
-      {{
-        section.settings.image
-        | image_url: width: 3840
-        | image_tag:
-          width: section.settings.image.width,
-          height: section.settings.image.height,
-          sizes: full_width,
-          widths: widths,
-          fetchpriority: fetch_priority,
-          class: 'aesop-hero__image'
-      }}
-    {%- else -%}
+      style="background-image: url('{{ section.settings.image | image_url: width: 3840 }}');"
+    {%- endif -%}
+  >
+    {%- if section.settings.image == blank -%}
       <div class="aesop-hero__product-showcase">
         <div class="aesop-hero__product-container">
           <div class="aesop-hero__product-bottle">
