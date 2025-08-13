@@ -9,6 +9,9 @@
 <div
   id="AesopHero-{{ section.id }}"
   class="aesop-hero {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+  {%- if section.settings.image != blank -%}
+    style="background-image: url('{{ section.settings.image | image_url: width: 1440 }}');"
+  {%- endif -%}
 >
   <div class="aesop-hero__brand">
     <h1 class="aesop-hero__brand-name">绣华莊</h1>
@@ -16,9 +19,6 @@
 
   <div
     class="aesop-hero__media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
-    {%- if section.settings.image != blank -%}
-      style="background-image: url('{{ section.settings.image | image_url: width: 3840 }}');"
-    {%- endif -%}
   >
     {%- if section.settings.image != blank -%}
       <img
