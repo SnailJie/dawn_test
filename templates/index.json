@@ -201,12 +201,26 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "aesop_certifications": {
+      "type": "aesop-certifications",
+      "settings": {
+        "quote_text": "Poetry must have something in it that is barbaric, vast and wild.",
+        "quote_author": "Denis Diderot",
+        "cert1_title": "Certified B Corp",
+        "cert1_text": "We meet the highest verified standards of social and environmental performance, transparency and accountability.",
+        "cert2_title": "Leaping Bunny Approved",
+        "cert2_text": "Our formulations are approved as cruelty free under the Cruelty Free International Leaping Bunny programme.",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
     }
   },
   "order": [
     "aesop_hero",
     "featured_collection",
     "aesop_product_grid",
-    "aesop_skincare_range"
+    "aesop_skincare_range",
+    "aesop_certifications"
   ]
 }
