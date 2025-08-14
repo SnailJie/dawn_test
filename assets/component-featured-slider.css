@@ -1,0 +1,52 @@
+.featured-collection .slider-buttons {
+  margin-top: 2rem;
+}
+
+.featured-collection .slider-button {
+  color: rgba(var(--color-foreground), 0.75);
+  background: rgba(var(--color-background), 0.9);
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  box-shadow: 0 2px 4px rgba(var(--color-foreground), 0.1);
+  transition: all 0.3s ease;
+}
+
+.featured-collection .slider-button:hover {
+  color: rgb(var(--color-foreground));
+  background: rgb(var(--color-background));
+  border-color: rgba(var(--color-foreground), 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(var(--color-foreground), 0.15);
+}
+
+.featured-collection .slider-button .icon {
+  height: 1rem;
+  width: 1rem;
+}
+
+.featured-collection .slider-counter {
+  background: rgba(var(--color-background), 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.4rem;
+  color: rgb(var(--color-foreground));
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+}
+
+@media screen and (max-width: 749px) {
+  .featured-collection .slider-buttons {
+    margin-top: 1.5rem;
+  }
+  
+  .featured-collection .slider-button {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .featured-collection .slider-counter {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
