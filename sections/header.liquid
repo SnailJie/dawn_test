@@ -125,7 +125,8 @@
     .header__heading {
       grid-area: logo;
       justify-self: center;
-      margin: 0;
+      margin: 0 auto !important;
+      width: fit-content;
     }
 
     .header__heading-logo-wrapper {
@@ -152,9 +153,9 @@
       transform: none;
     }
 
-    /* 导航栏字体放大到2倍 */
+    /* 导航栏字体大小设置为相对单位 */
     .header__menu-item {
-      font-size: calc(2 * var(--font-body-scale, 1rem));
+      font-size: 1.6rem;
     }
 
     /* 修复下划线问题 - 移除默认下划线，只在hover时显示 */
