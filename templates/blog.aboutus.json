@@ -103,6 +103,54 @@
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/rs_w_600_h_300_cg_true.webp",
+        "height": "small",
+        "desktop_image_width": "small",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_with_text_tKKKkd": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6E384b": {
+          "type": "heading",
+          "settings": {
+            "heading": "Our Team",
+            "heading_size": "h1"
+          }
+        },
+        "text_eMgiat": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Cuppy Cuppy is powered by a passionate team based in both the U.S. and China. We’re design enthusiasts and detail lovers who believe that even the simplest items can elevate everyday living. With a sharp eye for style and quality, we search for kitchenware that blends creativity, charm, and function. From concept to creation, our team is dedicated to selecting pieces that bring personality and warmth into your daily routine.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_Q47Uwa": {
+          "type": "button",
+          "settings": {
+            "button_label": "Button label",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6E384b",
+        "text_eMgiat",
+        "button_Q47Uwa"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/rs_w_600_h_300_cg_true_1.webp",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -121,6 +169,7 @@
   "order": [
     "main",
     "image_with_text_c4g9CH",
-    "image_with_text_cxYFCt"
+    "image_with_text_cxYFCt",
+    "image_with_text_tKKKkd"
   ]
 }
