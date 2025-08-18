@@ -281,33 +281,121 @@
   text-underline-offset: 4px;
 }
 
-/* 产品卡片文字样式 */
-.extended-collage__item--product .card__heading,
-.extended-collage__item--product .card__heading a {
+/* 产品卡片样式 */
+.extended-collage-product-card {
+  height: 100%;
+  position: relative;
+  border-radius: var(--border-radius);
+  border: var(--border-width) solid rgba(var(--color-foreground), var(--border-opacity));
+  padding: var(--image-padding);
+  overflow: hidden;
+}
+
+.extended-collage-product-card.product-card-wrapper {
+  --border-radius: var(--product-card-corner-radius);
+  --border-width: var(--product-card-border-width);
+  --border-opacity: var(--product-card-border-opacity);
+  --shadow-horizontal-offset: var(--product-card-shadow-horizontal-offset);
+  --shadow-vertical-offset: var(--product-card-shadow-vertical-offset);
+  --shadow-blur-radius: var(--product-card-shadow-blur-radius);
+  --shadow-opacity: var(--product-card-shadow-opacity);
+  --shadow-visible: var(--product-card-shadow-visible);
+  --image-padding: var(--product-card-image-padding);
+}
+
+.extended-collage-product-card:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius)
+    rgba(var(--color-shadow), var(--shadow-opacity));
+  width: calc(var(--border-width) * 2 + 100%);
+  height: calc(var(--border-width) * 2 + 100%);
+  top: calc(var(--border-width) * -1);
+  left: calc(var(--border-width) * -1);
+}
+
+.extended-collage-product-card .media {
+  height: 100%;
+  overflow: hidden;
+  border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
+}
+
+.extended-collage-product-link {
+  display: block;
+  height: 100%;
+  position: relative;
+  text-decoration: none;
+}
+
+/* 产品信息覆盖层 */
+.extended-collage-product-overlay {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  color: white !important;
-  font-weight: bold;
-  font-size: 1.8rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  text-decoration: none;
-  transition: text-decoration 0.3s ease;
   text-align: center;
-  width: 90%;
-  padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  backdrop-filter: blur(2px);
+  color: white;
+  padding: 1.2rem;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  width: 85%;
+  max-width: 300px;
+  transition: all 0.3s ease;
 }
 
-.extended-collage__item--product .card__heading a:hover {
+.extended-collage-product-overlay:hover {
+  background: rgba(0, 0, 0, 0.6);
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* 产品标题样式 */
+.extended-collage-product-title {
+  margin: 0 0 0.8rem 0;
+  font-weight: bold;
+  font-size: 1.6rem;
+  line-height: 1.3;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  transition: text-decoration 0.3s ease;
+}
+
+.extended-collage-product-link:hover .extended-collage-product-title {
   text-decoration: underline;
-  color: white !important;
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
+}
+
+/* 产品价格样式 */
+.extended-collage-product-price {
+  margin: 0;
+}
+
+.extended-collage-product-price .price {
+  color: white !important;
+  font-weight: 600;
+  font-size: 1.4rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.extended-collage-product-price .price__regular {
+  color: white !important;
+}
+
+.extended-collage-product-price .price__sale {
+  color: white !important;
+}
+
+.extended-collage-product-price .price__badge {
+  background: rgba(220, 53, 69, 0.9);
+  color: white;
+  border-radius: 4px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
 }
 
 /* 产品系列卡片文字样式 */
@@ -339,20 +427,35 @@
   text-underline-offset: 4px;
 }
 
-/* 隐藏产品价格等其他信息 */
-.extended-collage__item--product .price,
-.extended-collage__item--product .card__badge,
-.extended-collage__item--product .card__content:not(.card__heading) {
-  display: none;
+/* 响应式设计 */
+@media screen and (max-width: 749px) {
+  .extended-collage-product-overlay {
+    width: 90%;
+    padding: 1rem;
+  }
+  
+  .extended-collage-product-title {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .extended-collage-product-price .price {
+    font-size: 1.2rem;
+  }
 }
 
-/* 确保卡片内容不会影响布局 */
-.extended-collage__item .card__content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
+@media screen and (max-width: 550px) {
+  .extended-collage-product-overlay {
+    width: 95%;
+    padding: 0.8rem;
+  }
+  
+  .extended-collage-product-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .extended-collage-product-price .price {
+    font-size: 1.1rem;
+  }
 }
