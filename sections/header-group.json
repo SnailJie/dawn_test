@@ -35,22 +35,10 @@
         "enable_language_selector": false
       }
     },
-    "logo-banner": {
-      "type": "logo-banner",
-      "settings": {
-        "logo_image": "shopify://shop_images/Cuppy_logo.jpg",
-        "logo_width": 100,
-        "logo_link": "",
-        "color_scheme": "scheme-1",
-        "show_line_separator": false,
-        "padding_top": 0,
-        "padding_bottom": 8
-      }
-    },
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "top-left",
         "mobile_logo_position": "center",
         "menu": "link-list",
         "menu_type_desktop": "mega",
@@ -69,7 +57,6 @@
   },
   "order": [
     "announcement-bar",
-    "logo-banner",
     "header"
   ]
 }
