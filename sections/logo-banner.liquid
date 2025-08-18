@@ -1,0 +1,107 @@
+{{ 'section-logo-banner.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.logo_image != blank -%}
+  <div
+    class="logo-banner color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} logo-banner--bottom-border{% endif %}"
+    style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px;"
+  >
+    <div class="page-width">
+      <div class="logo-banner__content">
+        {%- if section.settings.logo_link != blank -%}
+          <a href="{{ section.settings.logo_link }}" class="logo-banner__link">
+        {%- endif -%}
+
+        <div class="logo-banner__image-wrapper">
+          <img
+            src="{{ section.settings.logo_image | image_url: width: section.settings.logo_width }}"
+            alt="{{ section.settings.logo_image.alt | default: shop.name }}"
+            class="logo-banner__image"
+            width="{{ section.settings.logo_width }}"
+            height="auto"
+            loading="lazy"
+          >
+        </div>
+
+        {%- if section.settings.logo_link != blank -%}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Logo横幅",
+  "class": "logo-banner-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo_image",
+      "label": "Logo图片",
+      "info": "选择要显示的logo图片"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 500,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo宽度",
+      "default": 200
+    },
+    {
+      "type": "url",
+      "id": "logo_link",
+      "label": "Logo链接",
+      "info": "点击logo时跳转的链接（可选）"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_line_separator",
+      "default": false,
+      "label": "显示底部分隔线"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部内边距",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部内边距",
+      "default": 20
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo横幅",
+      "settings": {
+        "logo_width": 200,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    }
+  ]
+}
+{% endschema %}

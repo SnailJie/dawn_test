@@ -19,6 +19,16 @@
         "announcement-bar-0"
       ]
     },
+    "logo-banner": {
+      "type": "logo-banner",
+      "settings": {
+        "logo_width": 200,
+        "color_scheme": "scheme-1",
+        "show_line_separator": false,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
     "header": {
       "type": "header",
       "settings": {
@@ -39,6 +49,7 @@
   },
   "order": [
     "announcement-bar",
+    "logo-banner",
     "header"
   ]
 }

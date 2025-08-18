@@ -1,0 +1,98 @@
+.logo-banner {
+  width: 100%;
+  position: relative;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.logo-banner--bottom-border {
+  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+}
+
+.logo-banner__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--padding-top, 2rem);
+  padding-bottom: var(--padding-bottom, 2rem);
+  min-height: auto;
+}
+
+.logo-banner__link {
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.logo-banner__link:hover {
+  transform: scale(1.05);
+}
+
+.logo-banner__image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-banner__image {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* 响应式设计 */
+@media screen and (max-width: 749px) {
+  .logo-banner__content {
+    padding-top: calc(var(--padding-top, 2rem) * 0.75);
+    padding-bottom: calc(var(--padding-bottom, 2rem) * 0.75);
+  }
+  
+  .logo-banner__image {
+    max-width: 80%;
+  }
+}
+
+/* 设置CSS变量 */
+.logo-banner-section {
+  --padding-top: 20px;
+  --padding-bottom: 20px;
+}
+
+/* 主题编辑器中的样式 */
+.shopify-design-mode .logo-banner {
+  position: relative;
+}
+
+.shopify-design-mode .logo-banner:before {
+  content: "Logo横幅 Section";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(var(--color-foreground), 0.75);
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 0.5rem;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 确保在没有图片时不显示 */
+.logo-banner:empty,
+.logo-banner__content:empty {
+  display: none;
+}
+
+/* 可访问性改进 */
+.logo-banner__link:focus {
+  outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
+  outline-offset: 0.3rem;
+}
+
+/* 平滑过渡效果 */
+.logo-banner,
+.logo-banner__image,
+.logo-banner__link {
+  transition: all 0.3s ease;
+}
