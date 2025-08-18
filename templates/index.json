@@ -197,7 +197,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "tableware",
+        "collection": "cups-mugs",
         "products_to_show": 8,
         "title": "Featured products",
         "heading_size": "h2",
