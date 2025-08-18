@@ -1,0 +1,288 @@
+.image-text-banner {
+  padding-top: var(--padding-top, 40px);
+  padding-bottom: var(--padding-bottom, 40px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.image-text-banner__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  min-height: 400px;
+}
+
+/* Image Section */
+.image-text-banner__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image-text-banner__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgb(var(--color-background));
+}
+
+.image-text-banner__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.3s ease;
+}
+
+.image-text-banner__image-wrapper:hover img {
+  transform: scale(1.05);
+}
+
+.image-text-banner__placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  background: rgb(var(--color-background));
+  border: 1px solid rgba(var(--color-foreground), 0.1);
+  border-radius: 8px;
+}
+
+.image-text-banner__placeholder .placeholder-svg {
+  width: 80px;
+  height: 80px;
+  opacity: 0.3;
+}
+
+/* Text Section */
+.image-text-banner__text {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.image-text-banner__text-content {
+  width: 100%;
+  max-width: 500px;
+}
+
+.image-text-banner__heading {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(var(--color-foreground), 0.7);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.image-text-banner__subheading {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgb(var(--color-foreground));
+  margin-bottom: 1.5rem;
+}
+
+.image-text-banner__description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(var(--color-foreground), 0.8);
+  margin-bottom: 2.5rem;
+}
+
+.image-text-banner__description p {
+  margin: 0;
+}
+
+.image-text-banner__button-wrapper {
+  margin-top: 2rem;
+}
+
+.image-text-banner__button-wrapper .button {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 1rem 2.5rem;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border: none;
+}
+
+.image-text-banner__button-wrapper .button--primary {
+  background: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 2px solid rgb(var(--color-button));
+}
+
+.image-text-banner__button-wrapper .button--primary:hover {
+  background: transparent;
+  color: rgb(var(--color-button));
+  transform: translateY(-2px);
+}
+
+.image-text-banner__button-wrapper .button--secondary {
+  background: transparent;
+  color: rgb(var(--color-foreground));
+  border: 2px solid rgb(var(--color-foreground));
+}
+
+.image-text-banner__button-wrapper .button--secondary:hover {
+  background: rgb(var(--color-foreground));
+  color: rgb(var(--color-background));
+  transform: translateY(-2px);
+}
+
+/* Layout Variations */
+.image-text-banner .image-text-banner__content[data-layout="text_first"] {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 989px) {
+  .image-text-banner__content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    min-height: auto;
+  }
+
+  /* On mobile, always show image first */
+  .image-text-banner__text {
+    order: 2;
+    padding: 1.5rem 0;
+  }
+
+  .image-text-banner__image {
+    order: 1;
+  }
+
+  .image-text-banner__image-wrapper {
+    min-height: 250px;
+  }
+
+  .image-text-banner__text-content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .image-text-banner__heading {
+    font-size: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .image-text-banner__subheading {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .image-text-banner__description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .image-text-banner__button-wrapper .button {
+    font-size: 0.8rem;
+    padding: 0.9rem 2rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .image-text-banner {
+    padding-top: calc(var(--padding-top, 40px) * 0.7);
+    padding-bottom: calc(var(--padding-bottom, 40px) * 0.7);
+  }
+
+  .image-text-banner__content {
+    gap: 1.5rem;
+  }
+
+  .image-text-banner__image-wrapper {
+    min-height: 200px;
+  }
+
+  .image-text-banner__text {
+    padding: 1rem 0;
+  }
+
+  .image-text-banner__subheading {
+    font-size: clamp(1.5rem, 8vw, 2rem);
+  }
+
+  .image-text-banner__description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .image-text-banner__button-wrapper .button {
+    font-size: 0.75rem;
+    padding: 0.8rem 1.8rem;
+  }
+}
+
+/* Theme Editor Helper */
+.shopify-design-mode .image-text-banner {
+  position: relative;
+}
+
+.shopify-design-mode .image-text-banner:before {
+  content: "图文横幅 Section";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(var(--color-foreground), 0.8);
+  color: rgb(var(--color-background));
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 10;
+  border-radius: 0 0 4px 0;
+  pointer-events: none;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .image-text-banner__placeholder {
+    background: rgba(var(--color-foreground), 0.05);
+    border-color: rgba(var(--color-foreground), 0.15);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .image-text-banner__heading {
+    color: rgb(var(--color-foreground));
+  }
+  
+  .image-text-banner__description {
+    color: rgb(var(--color-foreground));
+  }
+  
+  .image-text-banner__button-wrapper .button {
+    border-width: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .image-text-banner__image-wrapper img,
+  .image-text-banner__button-wrapper .button {
+    transition: none;
+  }
+  
+  .image-text-banner__image-wrapper:hover img {
+    transform: none;
+  }
+  
+  .image-text-banner__button-wrapper .button:hover {
+    transform: none;
+  }
+}

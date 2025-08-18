@@ -1,0 +1,285 @@
+{{ 'section-image-text-banner.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="image-text-banner color-{{ section.settings.color_scheme }} gradient"
+  style="--padding-top: {{ section.settings.padding_top }}px; --padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="page-width">
+    <div class="image-text-banner__content">
+      {%- if section.settings.layout == 'text_first' -%}
+        <!-- Text Content First (Mobile will reverse this) -->
+        <div class="image-text-banner__text">
+          <div class="image-text-banner__text-content">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="image-text-banner__heading">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.subheading != blank -%}
+              <h3 class="image-text-banner__subheading">{{ section.settings.subheading }}</h3>
+            {%- endif -%}
+
+            {%- if section.settings.description != blank -%}
+              <div class="image-text-banner__description">
+                {{ section.settings.description }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.button_label != blank -%}
+              <div class="image-text-banner__button-wrapper">
+                {%- if section.settings.button_link != blank -%}
+                  <a
+                    href="{{ section.settings.button_link }}"
+                    class="button button--{{ section.settings.button_style }}"
+                  >
+                    {{ section.settings.button_label }}
+                  </a>
+                {%- else -%}
+                  <span class="button button--{{ section.settings.button_style }}">
+                    {{ section.settings.button_label }}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- Image Content Second -->
+        <div class="image-text-banner__image">
+          {%- if section.settings.image != blank -%}
+            <div class="image-text-banner__image-wrapper">
+              <img
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                alt="{{ section.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                sizes="(min-width: 990px) 50vw, 100vw"
+                srcset="
+                  {{ section.settings.image | image_url: width: 400 }} 400w,
+                  {{ section.settings.image | image_url: width: 600 }} 600w,
+                  {{ section.settings.image | image_url: width: 800 }} 800w,
+                  {{ section.settings.image | image_url: width: 1000 }} 1000w
+                "
+              >
+            </div>
+          {%- else -%}
+            <div class="image-text-banner__placeholder">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+        </div>
+
+      {%- else -%}
+        <!-- Image First -->
+        <div class="image-text-banner__image">
+          {%- if section.settings.image != blank -%}
+            <div class="image-text-banner__image-wrapper">
+              <img
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                alt="{{ section.settings.image.alt | escape }}"
+                loading="lazy"
+                width="{{ section.settings.image.width }}"
+                height="{{ section.settings.image.height }}"
+                sizes="(min-width: 990px) 50vw, 100vw"
+                srcset="
+                  {{ section.settings.image | image_url: width: 400 }} 400w,
+                  {{ section.settings.image | image_url: width: 600 }} 600w,
+                  {{ section.settings.image | image_url: width: 800 }} 800w,
+                  {{ section.settings.image | image_url: width: 1000 }} 1000w
+                "
+              >
+            </div>
+          {%- else -%}
+            <div class="image-text-banner__placeholder">
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <!-- Text Content Second -->
+        <div class="image-text-banner__text">
+          <div class="image-text-banner__text-content">
+            {%- if section.settings.heading != blank -%}
+              <h2 class="image-text-banner__heading">{{ section.settings.heading }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.subheading != blank -%}
+              <h3 class="image-text-banner__subheading">{{ section.settings.subheading }}</h3>
+            {%- endif -%}
+
+            {%- if section.settings.description != blank -%}
+              <div class="image-text-banner__description">
+                {{ section.settings.description }}
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.button_label != blank -%}
+              <div class="image-text-banner__button-wrapper">
+                {%- if section.settings.button_link != blank -%}
+                  <a
+                    href="{{ section.settings.button_link }}"
+                    class="button button--{{ section.settings.button_style }}"
+                  >
+                    {{ section.settings.button_label }}
+                  </a>
+                {%- else -%}
+                  <span class="button button--{{ section.settings.button_style }}">
+                    {{ section.settings.button_label }}
+                  </span>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "图文横幅",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "图片"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "image_first",
+          "label": "图片在左"
+        },
+        {
+          "value": "text_first",
+          "label": "文字在左"
+        }
+      ],
+      "default": "image_first",
+      "label": "布局方式"
+    },
+    {
+      "type": "header",
+      "content": "文字内容"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "WELCOME",
+      "label": "主标题"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "subheading",
+      "default": "Charming Kitchenware for Every Home",
+      "label": "副标题"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>Discover cute and functional kitchen essentials for your cooking.</p>",
+      "label": "描述文字"
+    },
+    {
+      "type": "header",
+      "content": "按钮设置"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "SHOP NOW FOR KITCHEN FUN",
+      "label": "按钮文字"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "按钮链接"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "options": [
+        {
+          "value": "primary",
+          "label": "主要按钮"
+        },
+        {
+          "value": "secondary",
+          "label": "次要按钮"
+        }
+      ],
+      "default": "primary",
+      "label": "按钮样式"
+    },
+    {
+      "type": "header",
+      "content": "外观设置"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "background-1",
+          "label": "背景 1"
+        },
+        {
+          "value": "background-2",
+          "label": "背景 2"
+        },
+        {
+          "value": "inverse",
+          "label": "反色"
+        },
+        {
+          "value": "accent-1",
+          "label": "强调色 1"
+        },
+        {
+          "value": "accent-2",
+          "label": "强调色 2"
+        }
+      ],
+      "default": "background-1",
+      "label": "配色方案"
+    },
+    {
+      "type": "header",
+      "content": "间距设置"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部内边距",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "底部内边距",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "图文横幅"
+    }
+  ]
+}
+{% endschema %}
