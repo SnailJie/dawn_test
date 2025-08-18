@@ -319,44 +319,24 @@
         "padding_bottom": 36
       }
     },
-    "extended_collage_Mjbxkc": {
+    "extended_collage_bgqFXc": {
       "type": "extended-collage",
       "blocks": {
-        "product_h6xjdb": {
+        "image_mAbfFP": {
+          "type": "image",
+          "settings": {}
+        },
+        "product_4rPrVD": {
           "type": "product",
           "settings": {
             "product": "",
             "second_image": false
           }
-        },
-        "image_F4CR8g": {
-          "type": "image",
-          "settings": {}
-        },
-        "collection_iJpYEk": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "image_wY9zQQ": {
-          "type": "image",
-          "settings": {}
-        },
-        "video_H3cytp": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-            "description": "描述您的视频"
-          }
         }
       },
       "block_order": [
-        "product_h6xjdb",
-        "image_F4CR8g",
-        "collection_iJpYEk",
-        "image_wY9zQQ",
-        "video_H3cytp"
+        "image_mAbfFP",
+        "product_4rPrVD"
       ],
       "name": "扩展拼贴画",
       "settings": {
@@ -380,6 +360,6 @@
     "video",
     "multicolumn",
     "image_with_text_mei3Hf",
-    "extended_collage_Mjbxkc"
+    "extended_collage_bgqFXc"
   ]
 }
