@@ -324,7 +324,10 @@
       "blocks": {
         "image_mAbfFP": {
           "type": "image",
-          "settings": {}
+          "settings": {
+            "heading": "图片标题",
+            "link": ""
+          }
         },
         "product_4rPrVD": {
           "type": "product",
@@ -349,6 +352,64 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "extended_collage_inqyJt": {
+      "type": "extended-collage",
+      "blocks": {
+        "product_WGw8CE": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-mug-set",
+            "second_image": false
+          }
+        },
+        "product_rQhbkc": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-mug-set",
+            "second_image": false
+          }
+        },
+        "product_eRPN9q": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-mug-set",
+            "second_image": false
+          }
+        },
+        "product_XzB8PL": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-mug-set",
+            "second_image": false
+          }
+        },
+        "product_kXHqeh": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-mug-set",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "product_WGw8CE",
+        "product_rQhbkc",
+        "product_eRPN9q",
+        "product_XzB8PL",
+        "product_kXHqeh"
+      ],
+      "name": "扩展拼贴画",
+      "settings": {
+        "heading": "扩展拼贴画",
+        "heading_size": "h1",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -360,6 +421,7 @@
     "video",
     "multicolumn",
     "image_with_text_mei3Hf",
-    "extended_collage_bgqFXc"
+    "extended_collage_bgqFXc",
+    "extended_collage_inqyJt"
   ]
 }
