@@ -40,6 +40,9 @@
           {%- case block.type -%}
             {%- when 'image' -%}
               <div class="extended-collage-card {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}card-wrapper {{ section.settings.card_styles }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
+                {%- if block.settings.link != blank -%}
+                  <a href="{{ block.settings.link }}" class="extended-collage-card__link">
+                {%- endif -%}
                 <div
                   class="media media--transparent ratio"
                   {% if block.settings.image != blank %}
@@ -90,6 +93,14 @@
                     {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
                   {%- endif -%}
                 </div>
+                {%- if block.settings.heading != blank -%}
+                  <div class="extended-collage-text-overlay">
+                    {{ block.settings.heading }}
+                  </div>
+                {%- endif -%}
+                {%- if block.settings.link != blank -%}
+                  </a>
+                {%- endif -%}
               </div>
             {%- when 'product' -%}
               {%- assign placeholder_image = 'product-apparel-' | append: placeholder_image_index -%}
@@ -352,6 +363,18 @@
           "type": "image_picker",
           "id": "image",
           "label": "图片"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "label": "图片标题",
+          "default": "图片标题"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "链接",
+          "info": "点击图片时跳转的链接"
         }
       ]
     },

@@ -62,60 +62,68 @@
     grid-auto-flow: column;
     grid-column-gap: var(--grid-desktop-horizontal-spacing);
     grid-row-gap: var(--grid-desktop-vertical-spacing);
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    grid-template-rows: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
   }
 
   /* 大块在左侧的布局 */
   .extended-collage__item--left:nth-child(1) {
     grid-column: 1 / span 3;
-    grid-row: span 2;
+    grid-row: 1 / span 4;
   }
 
   .extended-collage__item--left:nth-child(2) {
     grid-column: 4;
     grid-row: 1;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--left:nth-child(3) {
-    grid-column: 5;
-    grid-row: 1;
+    grid-column: 4;
+    grid-row: 2;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--left:nth-child(4) {
     grid-column: 4;
-    grid-row: 2;
+    grid-row: 3;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--left:nth-child(5) {
-    grid-column: 5;
-    grid-row: 2;
+    grid-column: 4;
+    grid-row: 4;
+    aspect-ratio: 1;
   }
 
   /* 大块在右侧的布局 */
   .extended-collage__item--right:nth-child(1) {
     grid-column: 1;
     grid-row: 1;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--right:nth-child(2) {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--right:nth-child(3) {
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 3;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--right:nth-child(4) {
-    grid-column: 2;
-    grid-row: 2;
+    grid-column: 1;
+    grid-row: 4;
+    aspect-ratio: 1;
   }
 
   .extended-collage__item--right:nth-child(5) {
-    grid-column: 3 / span 3;
-    grid-row: span 2;
+    grid-column: 2 / span 3;
+    grid-row: 1 / span 4;
   }
 
   /* 少于5个块时的特殊处理 */
@@ -227,4 +235,124 @@
 .extended-collage-card .deferred-media__poster:focus {
   outline: none;
   box-shadow: none;
+}
+
+/* 文字居中显示样式 */
+.extended-collage-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.extended-collage-card .media {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* 文字覆盖层 */
+.extended-collage-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.extended-collage-text-overlay:hover {
+  text-decoration: underline;
+  color: white;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* 产品卡片文字样式 */
+.extended-collage__item--product .card__heading,
+.extended-collage__item--product .card__heading a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+  text-align: center;
+  width: 90%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.extended-collage__item--product .card__heading a:hover {
+  text-decoration: underline;
+  color: white !important;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* 产品系列卡片文字样式 */
+.extended-collage__item--collection .card__heading,
+.extended-collage__item--collection .card__heading a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  color: white !important;
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-decoration: none;
+  transition: text-decoration 0.3s ease;
+  text-align: center;
+  width: 90%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.extended-collage__item--collection .card__heading a:hover {
+  text-decoration: underline;
+  color: white !important;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+/* 隐藏产品价格等其他信息 */
+.extended-collage__item--product .price,
+.extended-collage__item--product .card__badge,
+.extended-collage__item--product .card__content:not(.card__heading) {
+  display: none;
+}
+
+/* 确保卡片内容不会影响布局 */
+.extended-collage__item .card__content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
 }
