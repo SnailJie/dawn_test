@@ -106,7 +106,7 @@
       "name": "PRODUCTS",
       "settings": {
         "heading": "Featured Products",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "desktop_layout": "left",
         "mobile_layout": "column",
         "card_styles": "product-card-wrapper",
