@@ -1,0 +1,322 @@
+{{ 'section-contact-info.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  assign current_weekday = 'now' | date: '%w'
+  assign current_weekday_int = current_weekday | plus: 0
+-%}
+
+<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
+  <div class="page-width">
+    <div class="contact-info{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <!-- 上方区域：标题和正文 -->
+      <div class="contact-info__header">
+        {%- if section.settings.heading != blank -%}
+          <h2 class="contact-info__heading {{ section.settings.heading_size }}">
+            {{ section.settings.heading }}
+          </h2>
+        {%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+          <div class="contact-info__description rte">
+            {{ section.settings.description }}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- 下方区域：左右布局 -->
+      <div class="contact-info__content">
+        <!-- 左侧：富文本区域 -->
+        <div class="contact-info__left">
+          <div class="contact-info__text-content">
+            {%- if section.settings.content_heading != blank -%}
+              <h3 class="contact-info__content-heading h4">{{ section.settings.content_heading }}</h3>
+            {%- endif -%}
+
+            {%- if section.settings.rich_text != blank -%}
+              <div class="contact-info__rich-text rte">
+                {{ section.settings.rich_text }}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+
+        <!-- 右侧：星期区域 -->
+        <div class="contact-info__right">
+          <div class="contact-info__hours">
+            {%- if section.settings.hours_heading != blank -%}
+              <h3 class="contact-info__hours-heading h4">{{ section.settings.hours_heading }}</h3>
+            {%- endif -%}
+
+            <div class="contact-info__hours-list">
+              {%- for i in (0..6) -%}
+                {%- assign is_today = false -%}
+                {%- if current_weekday_int == i -%}
+                  {%- assign is_today = true -%}
+                {%- endif -%}
+
+                <div class="contact-info__hours-item{% if is_today %} contact-info__hours-item--today{% endif %}">
+                  <span class="contact-info__day">
+                    {%- case i -%}
+                      {%- when 0 -%}
+                        {{ section.settings.sunday_label | default: 'Sun' }}
+                      {%- when 1 -%}
+                        {{ section.settings.monday_label | default: 'Mon' }}
+                      {%- when 2 -%}
+                        {{ section.settings.tuesday_label | default: 'Tue' }}
+                      {%- when 3 -%}
+                        {{ section.settings.wednesday_label | default: 'Wed' }}
+                      {%- when 4 -%}
+                        {{ section.settings.thursday_label | default: 'Thu' }}
+                      {%- when 5 -%}
+                        {{ section.settings.friday_label | default: 'Fri' }}
+                      {%- when 6 -%}
+                        {{ section.settings.saturday_label | default: 'Sat' }}
+                    {%- endcase -%}
+                  </span>
+                  <span class="contact-info__hours-time">
+                    {%- case i -%}
+                      {%- when 0 -%}
+                        {{ section.settings.sunday_hours | default: 'Closed' }}
+                      {%- when 1 -%}
+                        {{ section.settings.monday_hours | default: '09:00 am – 05:00 pm' }}
+                      {%- when 2 -%}
+                        {{ section.settings.tuesday_hours | default: '09:00 am – 05:00 pm' }}
+                      {%- when 3 -%}
+                        {{ section.settings.wednesday_hours | default: '09:00 am – 05:00 pm' }}
+                      {%- when 4 -%}
+                        {{ section.settings.thursday_hours | default: '09:00 am – 05:00 pm' }}
+                      {%- when 5 -%}
+                        {{ section.settings.friday_hours | default: '09:00 am – 05:00 pm' }}
+                      {%- when 6 -%}
+                        {{ section.settings.saturday_hours | default: 'Closed' }}
+                    {%- endcase -%}
+                  </span>
+                </div>
+              {%- endfor -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "联系信息",
+  "tag": "section",
+  "class": "section section-contact-info",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "页面标题"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "Let's Get in Touch!",
+      "label": "主标题"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "小"
+        },
+        {
+          "value": "h1",
+          "label": "中"
+        },
+        {
+          "value": "h0",
+          "label": "大"
+        },
+        {
+          "value": "hxl",
+          "label": "特大"
+        },
+        {
+          "value": "hxxl",
+          "label": "超大"
+        }
+      ],
+      "default": "h1",
+      "label": "标题大小"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "default": "<p>We'd love to hear from you! For any questions or inquiries, please reach out to us at our email below. We'll get back to you as soon as we can.</p>",
+      "label": "描述文本"
+    },
+    {
+      "type": "header",
+      "content": "左侧内容区域"
+    },
+    {
+      "type": "text",
+      "id": "content_heading",
+      "default": "Cuppy Cuppy",
+      "label": "内容标题"
+    },
+    {
+      "type": "richtext",
+      "id": "rich_text",
+      "default": "<p>info@cuppycuppy.com</p>",
+      "label": "富文本内容"
+    },
+    {
+      "type": "header",
+      "content": "右侧营业时间"
+    },
+    {
+      "type": "text",
+      "id": "hours_heading",
+      "default": "Hours",
+      "label": "营业时间标题"
+    },
+    {
+      "type": "text",
+      "id": "sunday_label",
+      "default": "Sun",
+      "label": "星期日标签"
+    },
+    {
+      "type": "text",
+      "id": "sunday_hours",
+      "default": "Closed",
+      "label": "星期日营业时间"
+    },
+    {
+      "type": "text",
+      "id": "monday_label",
+      "default": "Mon",
+      "label": "星期一标签"
+    },
+    {
+      "type": "text",
+      "id": "monday_hours",
+      "default": "09:00 am – 05:00 pm",
+      "label": "星期一营业时间"
+    },
+    {
+      "type": "text",
+      "id": "tuesday_label",
+      "default": "Tue",
+      "label": "星期二标签"
+    },
+    {
+      "type": "text",
+      "id": "tuesday_hours",
+      "default": "09:00 am – 05:00 pm",
+      "label": "星期二营业时间"
+    },
+    {
+      "type": "text",
+      "id": "wednesday_label",
+      "default": "Wed",
+      "label": "星期三标签"
+    },
+    {
+      "type": "text",
+      "id": "wednesday_hours",
+      "default": "09:00 am – 05:00 pm",
+      "label": "星期三营业时间"
+    },
+    {
+      "type": "text",
+      "id": "thursday_label",
+      "default": "Thu",
+      "label": "星期四标签"
+    },
+    {
+      "type": "text",
+      "id": "thursday_hours",
+      "default": "09:00 am – 05:00 pm",
+      "label": "星期四营业时间"
+    },
+    {
+      "type": "text",
+      "id": "friday_label",
+      "default": "Fri",
+      "label": "星期五标签"
+    },
+    {
+      "type": "text",
+      "id": "friday_hours",
+      "default": "09:00 am – 05:00 pm",
+      "label": "星期五营业时间"
+    },
+    {
+      "type": "text",
+      "id": "saturday_label",
+      "default": "Sat",
+      "label": "星期六标签"
+    },
+    {
+      "type": "text",
+      "id": "saturday_hours",
+      "default": "Closed",
+      "label": "星期六营业时间"
+    },
+    {
+      "type": "header",
+      "content": "颜色设置"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "间距设置"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部间距",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部间距",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "联系信息"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,182 @@
+/* 联系信息 Section 样式 */
+
+.contact-info {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* 头部区域 */
+.contact-info__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-info__heading {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info__description {
+  font-size: 1.6rem;
+  color: rgba(var(--color-foreground), 0.75);
+  max-width: 70rem;
+  margin: 0 auto;
+}
+
+/* 内容区域 - 左右布局 */
+.contact-info__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media screen and (min-width: 750px) {
+  .contact-info__content {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .contact-info__content {
+    gap: 7rem;
+  }
+}
+
+/* 左侧内容区域 */
+.contact-info__left {
+  padding: 3rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
+.contact-info__content-heading {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.contact-info__rich-text {
+  color: rgba(var(--color-foreground), 0.8);
+}
+
+.contact-info__rich-text p {
+  margin-bottom: 1rem;
+}
+
+.contact-info__rich-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* 右侧营业时间区域 */
+.contact-info__right {
+  padding: 3rem;
+  border: 1px solid rgba(var(--color-foreground), 0.12);
+  border-radius: 0.8rem;
+  text-align: center;
+}
+
+.contact-info__hours-heading {
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.contact-info__hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contact-info__hours-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.08);
+  transition: all 0.2s ease;
+}
+
+.contact-info__hours-item:last-child {
+  border-bottom: none;
+}
+
+.contact-info__hours-item--today {
+  font-weight: 600;
+  background-color: rgba(var(--color-foreground), 0.04);
+  border-radius: 0.4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid rgba(var(--color-foreground), 0.12);
+}
+
+.contact-info__hours-item--today:last-child {
+  border-bottom: none;
+}
+
+.contact-info__day {
+  font-weight: inherit;
+  color: rgba(var(--color-foreground), 0.9);
+  min-width: 3rem;
+  text-align: left;
+}
+
+.contact-info__hours-time {
+  font-weight: inherit;
+  color: rgba(var(--color-foreground), 0.75);
+  text-align: right;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.contact-info__hours-item--today .contact-info__day,
+.contact-info__hours-item--today .contact-info__hours-time {
+  color: rgb(var(--color-foreground));
+  font-weight: 600;
+}
+
+/* 移动端优化 */
+@media screen and (max-width: 749px) {
+  .contact-info__header {
+    margin-bottom: 3rem;
+  }
+  
+  .contact-info__left,
+  .contact-info__right {
+    padding: 2rem;
+  }
+  
+  .contact-info__description {
+    font-size: 1.4rem;
+  }
+  
+  .contact-info__hours-item {
+    padding: 0.6rem 0;
+    font-size: 1.4rem;
+  }
+  
+  .contact-info__hours-item--today {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+  }
+  
+  .contact-info__day {
+    min-width: 2.5rem;
+    font-size: 1.4rem;
+  }
+  
+  .contact-info__hours-time {
+    font-size: 1.3rem;
+  }
+}
+
+/* 平板端优化 */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .contact-info__content {
+    gap: 4rem;
+  }
+  
+  .contact-info__left,
+  .contact-info__right {
+    padding: 2.5rem;
+  }
+}
