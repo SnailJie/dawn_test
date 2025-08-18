@@ -240,6 +240,7 @@
         },
         "button_XLRczG": {
           "type": "button",
+          "disabled": true,
           "settings": {
             "button_label": "按鈕標籤",
             "button_link": "",
