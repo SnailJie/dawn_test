@@ -105,7 +105,7 @@
       ],
       "name": "PRODUCTS",
       "settings": {
-        "heading": "扩展拼贴画",
+        "heading": "Featured Products",
         "heading_size": "h1",
         "desktop_layout": "left",
         "mobile_layout": "column",
