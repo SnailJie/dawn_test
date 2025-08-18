@@ -1,0 +1,286 @@
+{{ 'product-collage.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient isolate">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="product-collage-wrapper-title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+
+    <div class="product-collage">
+      {%- assign main_product = section.blocks[0] -%}
+
+      <!-- 主要产品区域（左侧大块） -->
+      <div
+        class="product-collage__main{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 1;"
+        {% endif %}
+      >
+        {%- if main_product -%}
+          {% render 'card-product',
+            card_product: main_product.settings.product,
+            media_aspect_ratio: 'adapt',
+            show_secondary_image: main_product.settings.second_image,
+            extend_height: true,
+            placeholder_image: 'product-apparel-1',
+            skip_styles: false
+          %}
+        {%- else -%}
+          {% render 'card-product',
+            card_product: null,
+            media_aspect_ratio: 'adapt',
+            show_secondary_image: false,
+            extend_height: true,
+            placeholder_image: 'product-apparel-1',
+            skip_styles: false
+          %}
+        {%- endif -%}
+      </div>
+
+      <!-- 侧边产品区域（右侧4个小块） -->
+      <div class="product-collage__side">
+        {%- for i in (1..4) -%}
+          {%- assign side_product = section.blocks[i] -%}
+          <div
+            class="product-collage__side-item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            {% if settings.animations_reveal_on_scroll %}
+              data-cascade
+              style="--animation-order: {{ i | plus: 1 }};"
+            {% endif %}
+          >
+            {%- if side_product -%}
+              {% render 'card-product',
+                card_product: side_product.settings.product,
+                media_aspect_ratio: 'adapt',
+                show_secondary_image: side_product.settings.second_image,
+                extend_height: true,
+                placeholder_image: 'product-apparel-{{ i | plus: 1 }}',
+                skip_styles: true
+              %}
+            {%- else -%}
+              {% render 'card-product',
+                card_product: null,
+                media_aspect_ratio: 'adapt',
+                show_secondary_image: false,
+                extend_height: true,
+                placeholder_image: 'product-apparel-{{ i | plus: 1 }}',
+                skip_styles: true
+              %}
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "产品剪贴画",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "default": "特色产品系列",
+      "label": "标题"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "小"
+        },
+        {
+          "value": "h1",
+          "label": "中"
+        },
+        {
+          "value": "h0",
+          "label": "大"
+        },
+        {
+          "value": "hxl",
+          "label": "特大"
+        },
+        {
+          "value": "hxxl",
+          "label": "超大"
+        }
+      ],
+      "default": "h1",
+      "label": "标题大小"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "配色方案",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "间距设置"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "顶部间距",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "底部间距",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "主要产品（左侧大块）",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "产品"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "default": false,
+          "label": "显示第二张图片"
+        }
+      ]
+    },
+    {
+      "type": "side_product_1",
+      "name": "侧边产品 1",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "产品"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "default": false,
+          "label": "显示第二张图片"
+        }
+      ]
+    },
+    {
+      "type": "side_product_2",
+      "name": "侧边产品 2",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "产品"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "default": false,
+          "label": "显示第二张图片"
+        }
+      ]
+    },
+    {
+      "type": "side_product_3",
+      "name": "侧边产品 3",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "产品"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "default": false,
+          "label": "显示第二张图片"
+        }
+      ]
+    },
+    {
+      "type": "side_product_4",
+      "name": "侧边产品 4",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "产品"
+        },
+        {
+          "type": "checkbox",
+          "id": "second_image",
+          "default": false,
+          "label": "显示第二张图片"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 5,
+  "presets": [
+    {
+      "name": "产品剪贴画",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "side_product_1"
+        },
+        {
+          "type": "side_product_2"
+        },
+        {
+          "type": "side_product_3"
+        },
+        {
+          "type": "side_product_4"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

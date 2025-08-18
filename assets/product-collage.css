@@ -1,0 +1,176 @@
+/* 产品剪贴画样式 */
+
+.product-collage-wrapper-title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.product-collage {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+}
+
+/* 移动端布局 - 垂直堆叠 */
+@media screen and (max-width: 749px) {
+  .product-collage {
+    gap: 1rem;
+  }
+  
+  .product-collage__main {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  
+  .product-collage__side {
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .product-collage__side-item {
+    width: 100%;
+  }
+}
+
+/* 平板和桌面端布局 - 1+4 layout */
+@media screen and (min-width: 750px) {
+  .product-collage {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 2rem;
+  }
+  
+  .product-collage__main {
+    grid-column: 1;
+    grid-row: 1;
+    height: 100%;
+  }
+  
+  .product-collage__side {
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 1rem;
+    height: 100%;
+  }
+  
+  .product-collage__side-item {
+    width: 100%;
+  }
+}
+
+/* 大屏幕优化 */
+@media screen and (min-width: 990px) {
+  .product-collage {
+    gap: 2.5rem;
+  }
+  
+  .product-collage__side {
+    gap: 1.5rem;
+  }
+}
+
+/* 确保产品卡片填满容器高度 */
+.product-collage__main .card-wrapper,
+.product-collage__side-item .card-wrapper {
+  height: 100%;
+}
+
+.product-collage__main .card,
+.product-collage__side-item .card {
+  height: 100%;
+}
+
+.product-collage__main .card__inner,
+.product-collage__side-item .card__inner {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-collage__main .media,
+.product-collage__side-item .media {
+  flex-grow: 1;
+}
+
+/* 产品信息覆盖层样式 */
+.product-collage .card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: rgba(255, 255, 255, 0.9);
+  padding: 2rem 1.5rem 1.5rem;
+  text-align: center;
+  z-index: 2;
+}
+
+.product-collage .card__information {
+  padding: 0;
+}
+
+.product-collage .card-information__text {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.product-collage .price {
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+}
+
+.product-collage .price__sale {
+  color: rgb(255, 255, 255);
+}
+
+.product-collage .price__regular {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* 悬停效果 */
+.product-collage .card-wrapper:hover .card__content {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.product-collage .card-wrapper:hover .media img {
+  transform: scale(1.05);
+}
+
+.product-collage .media img {
+  transition: transform 0.3s ease;
+}
+
+/* 响应式字体大小 */
+@media screen and (max-width: 749px) {
+  .product-collage__side-item .card__content {
+    padding: 1rem 1rem 0.8rem;
+  }
+  
+  .product-collage__side-item .card-information__text {
+    font-size: 0.9rem;
+  }
+  
+  .product-collage__side-item .price {
+    font-size: 1rem;
+  }
+}
+
+/* 动画效果 */
+.product-collage__main,
+.product-collage__side-item {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.product-collage__main.animate--slide-in,
+.product-collage__side-item.animate--slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
