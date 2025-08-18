@@ -9,6 +9,54 @@
  */
 {
   "sections": {
+    "image_with_text_brzA87": {
+      "type": "image-with-text",
+      "blocks": {
+        "heading_6y8h7p": {
+          "type": "heading",
+          "settings": {
+            "heading": "WelcomeCharming Kitchenware for Every Home",
+            "heading_size": "h1"
+          }
+        },
+        "text_yWUFiH": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Discover cute and functional kitchen essentials for your cooking.</p>",
+            "text_style": "body"
+          }
+        },
+        "button_KPMr6V": {
+          "type": "button",
+          "settings": {
+            "button_label": "SHOP NOW  FOR KICHEN FUN",
+            "button_link": "",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_6y8h7p",
+        "text_yWUFiH",
+        "button_KPMr6V"
+      ],
+      "name": "第一块",
+      "settings": {
+        "image": "shopify://shop_images/cr_w_500_h_500.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -43,6 +91,7 @@
         "text",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -272,6 +321,7 @@
     }
   },
   "order": [
+    "image_with_text_brzA87",
     "image_banner",
     "rich_text",
     "featured_collection",
