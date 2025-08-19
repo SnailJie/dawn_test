@@ -20,6 +20,9 @@
 
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
+  {% if section.settings.custom_background_color != blank %}
+    style="background-color: {{ section.settings.custom_background_color }};"
+  {% endif %}
 >
   <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
     {%- if section.settings.show_social and social_icons -%}
@@ -186,13 +189,19 @@
       "unit": "s",
       "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
       "default": 5
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
-    },  
+    },
+    {
+      "type": "color",
+      "id": "custom_background_color",
+      "label": "自定义背景颜色",
+      "info": "设置公告栏的自定义背景颜色，留空则使用默认颜色方案"
+    },
     {
       "type": "checkbox",
       "id": "show_line_separator",
@@ -205,8 +214,8 @@
     },
     {
       "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
+      "content": "t:sections.announcement-bar.settings.paragraph.content"
+    },
     {
       "type": "checkbox",
       "id": "show_social",
