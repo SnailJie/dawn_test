@@ -42,7 +42,15 @@
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
           {%- endif -%}
-          <p class="announcement-bar__message h5">
+          <p
+            class="announcement-bar__message h5"
+            {% if section.settings.custom_text_color != blank or section.settings.custom_font_size != blank %}
+              style="
+                {% if section.settings.custom_text_color != blank %}color: {{ section.settings.custom_text_color }};{% endif %}
+                {% if section.settings.custom_font_size != blank %}font-size: {{ section.settings.custom_font_size }}px;{% endif %}
+              "
+            {% endif %}
+          >
             <span>{{ section.blocks.first.settings.text | escape }}</span>
             {%- if section.blocks.first.settings.link != blank -%}
               {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -102,7 +110,15 @@
                         class="announcement-bar__link link link--text focus-inset animate-arrow"
                       >
                     {%- endif -%}
-                    <p class="announcement-bar__message h5">
+                    <p
+                      class="announcement-bar__message h5"
+                      {% if section.settings.custom_text_color != blank or section.settings.custom_font_size != blank %}
+                        style="
+                          {% if section.settings.custom_text_color != blank %}color: {{ section.settings.custom_text_color }};{% endif %}
+                          {% if section.settings.custom_font_size != blank %}font-size: {{ section.settings.custom_font_size }}px;{% endif %}
+                        "
+                      {% endif %}
+                    >
                       <span>{{ block.settings.text | escape }}</span>
                       {%- if block.settings.link != blank -%}
                         {{- 'icon-arrow.svg' | inline_asset_content -}}
@@ -201,6 +217,23 @@
       "id": "custom_background_color",
       "label": "自定义背景颜色",
       "info": "设置公告栏的自定义背景颜色，留空则使用默认颜色方案"
+    },
+    {
+      "type": "color",
+      "id": "custom_text_color",
+      "label": "自定义文字颜色",
+      "info": "设置公告栏文字的自定义颜色，留空则使用默认颜色方案"
+    },
+    {
+      "type": "range",
+      "id": "custom_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "自定义字体大小",
+      "default": 14,
+      "info": "设置公告栏文字的字体大小"
     },
     {
       "type": "checkbox",
