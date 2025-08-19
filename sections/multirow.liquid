@@ -12,6 +12,32 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* 图片形状样式 */
+  .image-shape--circle {
+    border-radius: 50% !important;
+  }
+
+  .image-shape--square {
+    border-radius: 0 !important;
+  }
+
+  .image-shape--rectangle {
+    border-radius: 0 !important;
+  }
+
+  /* 图片大小样式 */
+  .image-size--fit {
+    object-fit: contain;
+  }
+
+  .image-size--cover {
+    object-fit: cover;
+  }
+
+  .image-size--scale-down {
+    object-fit: scale-down;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -65,10 +91,19 @@
                 {{
                   block.settings.image
                   | image_url: width: 1500
-                  | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500'
+                  | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500', class: 'image-shape--'
+                  | append: section.settings.image_shape
+                  | append: ' image-size--'
+                  | append: section.settings.image_size
                 }}
               {%- else -%}
-                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {{
+                  'detailed-apparel-1'
+                  | placeholder_svg_tag: 'placeholder-svg image-shape--'
+                  | append: section.settings.image_shape
+                  | append: ' image-size--'
+                  | append: section.settings.image_size
+                }}
               {%- endif -%}
             </div>
           </div>
@@ -316,6 +351,46 @@
       "content": "t:sections.multirow.settings.header_3.content"
     },
     {
+      "type": "select",
+      "id": "image_shape",
+      "options": [
+        {
+          "value": "circle",
+          "label": "圆形"
+        },
+        {
+          "value": "square",
+          "label": "正方形"
+        },
+        {
+          "value": "rectangle",
+          "label": "长方形"
+        }
+      ],
+      "default": "rectangle",
+      "label": "图片形状"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "options": [
+        {
+          "value": "fit",
+          "label": "适应图片大小"
+        },
+        {
+          "value": "cover",
+          "label": "放大"
+        },
+        {
+          "value": "scale-down",
+          "label": "缩小"
+        }
+      ],
+      "default": "cover",
+      "label": "图片大小"
+    },
+    {
       "type": "color_scheme",
       "id": "section_color_scheme",
       "label": "t:sections.all.colors.label",
@@ -384,7 +459,7 @@
           "type": "text",
           "id": "button_label",
           "default": "t:sections.multirow.blocks.row.settings.button_label.default",
-          "label": "t:sections.multirow.blocks.row.settings.button_label.label", 
+          "label": "t:sections.multirow.blocks.row.settings.button_label.label",
           "info": "t:sections.multirow.blocks.row.settings.button_label.info"
         },
         {
