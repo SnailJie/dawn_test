@@ -17,6 +17,20 @@
         "color_scheme": "scheme-1"
       }
     },
+    "quote_banner_AnMqfK": {
+      "type": "quote-banner",
+      "name": "t:sections.quote_banner.presets.name",
+      "settings": {
+        "background_image": "shopify://shop_images/two-red-cocktails-on-a-tray.jpg",
+        "image_overlay_opacity": 0,
+        "banner_height": "medium",
+        "full_width": true,
+        "quote_text": "<p>The secret of happiness is to find joy in the ordinary.</p>",
+        "author_name": "Ruth Reichl",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "slideshow_Vy8EGb": {
       "type": "slideshow",
       "blocks": {
@@ -42,6 +56,7 @@
       "block_order": [
         "slide_4Lp8Df"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
@@ -67,7 +82,7 @@
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
-        "enable_filtering": true,
+        "enable_filtering": false,
         "filter_type": "horizontal",
         "enable_sorting": true,
         "padding_top": 36,
@@ -77,6 +92,7 @@
   },
   "order": [
     "banner",
+    "quote_banner_AnMqfK",
     "slideshow_Vy8EGb",
     "product-grid"
   ]
