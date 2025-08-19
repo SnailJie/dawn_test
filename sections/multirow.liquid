@@ -38,6 +38,11 @@
   .image-with-text__media .image-size--scale-down {
     object-fit: scale-down !important;
   }
+
+  /* 强制第一行图片为圆形 */
+  .multirow .image-with-text:first-child .image-with-text__media img {
+    border-radius: 50% !important;
+  }
 {%- endstyle -%}
 
 {%- liquid
