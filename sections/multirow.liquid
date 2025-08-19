@@ -43,6 +43,12 @@
   .multirow .image-with-text:first-child .image-with-text__media img {
     border-radius: 50% !important;
   }
+
+  /* 移除所有图片边框 */
+  .multirow .image-with-text__media img {
+    border: none !important;
+    outline: none !important;
+  }
 {%- endstyle -%}
 
 {%- liquid
@@ -100,6 +106,10 @@
                   | append: block.settings.image_shape
                   | append: ' image-size--'
                   | append: block.settings.image_size
+                  | replace: 'image-shape-- ', ''
+                  | replace: ' image-size-- ', ''
+                  | replace: 'image-shape--', ''
+                  | replace: 'image-size--', ''
                 }}
               {%- else -%}
                 {{
@@ -108,6 +118,10 @@
                   | append: block.settings.image_shape
                   | append: ' image-size--'
                   | append: block.settings.image_size
+                  | replace: 'image-shape-- ', ''
+                  | replace: ' image-size-- ', ''
+                  | replace: 'image-shape--', ''
+                  | replace: 'image-size--', ''
                 }}
               {%- endif -%}
             </div>
