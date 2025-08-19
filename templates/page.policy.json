@@ -17,16 +17,6 @@
         "padding_bottom": 36
       }
     },
-    "form": {
-      "type": "contact-form",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "collapsible_content_DNdD7y": {
       "type": "collapsible-content",
       "blocks": {
@@ -90,11 +80,22 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "Contact Use",
+        "heading_size": "h1",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "form",
-    "collapsible_content_DNdD7y"
+    "collapsible_content_DNdD7y",
+    "form"
   ]
 }
