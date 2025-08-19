@@ -374,6 +374,24 @@
       "min_error": "This item has a minimum of {{ min }}",
       "max_error": "This item has a maximum of {{ max }}",
       "step_error": "You can only add this item in increments of {{ step }}"
+    },
+    "quote_banner": {
+      "name": "Quote Banner",
+      "settings": {
+        "background_image": "Background Image",
+        "image_overlay_opacity": "Image overlay opacity",
+        "banner_height": "Banner height",
+        "full_width": "Full width",
+        "quote_icon": "Quote Icon",
+        "quote_text": "Quote Text",
+        "divider_image": "Divider Image",
+        "author_name": "Author Name",
+        "padding_top": "Padding top",
+        "padding_bottom": "Padding bottom"
+      },
+      "presets": {
+        "name": "Quote Banner"
+      }
     }
   },
   "localization": {

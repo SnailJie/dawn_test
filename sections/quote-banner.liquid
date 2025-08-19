@@ -1,0 +1,208 @@
+{{ 'section-quote-banner.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #QuoteBanner-{{ section.id }} {
+    background-image: url('{{ section.settings.background_image | image_url: width: 3840 }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: {{ section.settings.banner_height }}px;
+  }
+
+  #QuoteBanner-{{ section.id }}::after {
+    opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.0 }};
+  }
+{%- endstyle -%}
+
+<div
+  id="QuoteBanner-{{ section.id }}"
+  class="quote-banner quote-banner--{{ section.settings.banner_height }}{% if section.settings.full_width %} quote-banner--full-width{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} section-{{ section.id }}-padding"
+>
+  {%- if section.settings.background_image == blank -%}
+    <div class="quote-banner__placeholder">
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    </div>
+  {%- endif -%}
+
+  <div class="quote-banner__content page-width">
+    <div class="quote-banner__wrapper">
+      {%- if section.settings.quote_icon != blank -%}
+        <div class="quote-banner__icon{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{
+            section.settings.quote_icon
+            | image_url: width: 200
+            | image_tag:
+              width: section.settings.quote_icon.width,
+              height: section.settings.quote_icon.height,
+              class: 'quote-banner__icon-image'
+          }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.quote_text != blank -%}
+        <div
+          class="quote-banner__text{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade style="--animation-order: 2;"
+          {% endif %}
+        >
+          <div class="quote-banner__text-content rte">
+            {{ section.settings.quote_text }}
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.divider_image != blank -%}
+        <div
+          class="quote-banner__divider{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade style="--animation-order: 3;"
+          {% endif %}
+        >
+          {{
+            section.settings.divider_image
+            | image_url: width: 300
+            | image_tag:
+              width: section.settings.divider_image.width,
+              height: section.settings.divider_image.height,
+              class: 'quote-banner__divider-image'
+          }}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.author_name != blank -%}
+        <div
+          class="quote-banner__author{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade style="--animation-order: 4;"
+          {% endif %}
+        >
+          <p class="quote-banner__author-name">
+            {{ section.settings.author_name | escape }}
+          </p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.quote_banner.name",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "t:sections.quote_banner.settings.background_image"
+    },
+    {
+      "type": "range",
+      "id": "image_overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "unit": "%",
+      "label": "t:sections.quote_banner.settings.image_overlay_opacity",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "banner_height",
+      "options": [
+        {
+          "value": "small",
+          "label": "t:common.sizes.small"
+        },
+        {
+          "value": "medium",
+          "label": "t:common.sizes.medium"
+        },
+        {
+          "value": "large",
+          "label": "t:common.sizes.large"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.quote_banner.settings.banner_height"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "default": true,
+      "label": "t:sections.quote_banner.settings.full_width"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.content"
+    },
+    {
+      "type": "image_picker",
+      "id": "quote_icon",
+      "label": "t:sections.quote_banner.settings.quote_icon"
+    },
+    {
+      "type": "richtext",
+      "id": "quote_text",
+      "default": "<p>The secret of happiness is to find joy in the ordinary.</p>",
+      "label": "t:sections.quote_banner.settings.quote_text"
+    },
+    {
+      "type": "image_picker",
+      "id": "divider_image",
+      "label": "t:sections.quote_banner.settings.divider_image"
+    },
+    {
+      "type": "text",
+      "id": "author_name",
+      "default": "Ruth Reichl",
+      "label": "t:sections.quote_banner.settings.author_name"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.quote_banner.settings.padding_top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.quote_banner.settings.padding_bottom",
+      "default": 52
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.quote_banner.presets.name"
+    }
+  ]
+}
+{% endschema %}

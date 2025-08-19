@@ -3167,6 +3167,44 @@
         "name": "Slideshow"
       }
     },
+    "quote_banner": {
+      "name": "Quote Banner",
+      "settings": {
+        "background_image": {
+          "label": "Background Image"
+        },
+        "image_overlay_opacity": {
+          "label": "Image overlay opacity"
+        },
+        "banner_height": {
+          "label": "Banner height"
+        },
+        "full_width": {
+          "label": "Full width"
+        },
+        "quote_icon": {
+          "label": "Quote Icon"
+        },
+        "quote_text": {
+          "label": "Quote Text"
+        },
+        "divider_image": {
+          "label": "Divider Image"
+        },
+        "author_name": {
+          "label": "Author Name"
+        },
+        "padding_top": {
+          "label": "Padding top"
+        },
+        "padding_bottom": {
+          "label": "Padding bottom"
+        }
+      },
+      "presets": {
+        "name": "Quote Banner"
+      }
+    },
     "collapsible_content": {
       "name": "Collapsible content",
       "settings": {

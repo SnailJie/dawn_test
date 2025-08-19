@@ -1,0 +1,112 @@
+.quote-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.quote-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.quote-banner__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.quote-banner__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.quote-banner__wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.quote-banner__icon {
+  margin-bottom: 2rem;
+}
+
+.quote-banner__icon-image {
+  max-width: 80px;
+  height: auto;
+}
+
+.quote-banner__text {
+  margin-bottom: 2rem;
+}
+
+.quote-banner__text-content {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.quote-banner__divider {
+  margin-bottom: 1.5rem;
+}
+
+.quote-banner__divider-image {
+  max-width: 120px;
+  height: auto;
+}
+
+.quote-banner__author {
+  margin-top: 1rem;
+}
+
+.quote-banner__author-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Banner height variants */
+.quote-banner--small {
+  min-height: 300px;
+}
+
+.quote-banner--medium {
+  min-height: 400px;
+}
+
+.quote-banner--large {
+  min-height: 500px;
+}
+
+/* Full width variant */
+.quote-banner--full-width .quote-banner__content {
+  max-width: none;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 749px) {
+  .quote-banner__wrapper {
+    padding: 1rem;
+  }
+  
+  .quote-banner__text-content {
+    font-size: 1.25rem;
+  }
+  
+  .quote-banner__author-name {
+    font-size: 1rem;
+  }
+}
