@@ -127,10 +127,13 @@
       justify-self: center;
       margin: 0 auto !important;
       width: fit-content;
+      text-align: center;
     }
 
     .header__heading-logo-wrapper {
       margin: 0;
+      display: flex;
+      justify-content: center;
     }
 
     /* 第二行：导航菜单居中 */
@@ -139,10 +142,21 @@
       justify-self: center;
       margin-left: 0;
       width: auto;
+      display: flex;
+      justify-content: center;
     }
 
     .header__inline-menu > .list-menu--inline {
       justify-content: center;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    /* 确保导航菜单项居中 */
+    .header__inline-menu .list-menu--inline > li {
+      display: flex;
+      align-items: center;
     }
 
     /* 右侧图标区域 */
@@ -151,6 +165,51 @@
       justify-self: end;
       position: static;
       transform: none;
+    }
+
+    /* 确保所有logo位置都居中显示 */
+    .header--top-left .header__heading,
+    .header--top-center .header__heading,
+    .header--middle-left .header__heading,
+    .header--middle-center .header__heading {
+      justify-self: center !important;
+      text-align: center !important;
+    }
+
+    .header--top-left .header__heading-logo-wrapper,
+    .header--top-center .header__heading-logo-wrapper,
+    .header--middle-left .header__heading-logo-wrapper,
+    .header--middle-center .header__heading-logo-wrapper {
+      display: flex !important;
+      justify-content: center !important;
+      margin: 0 auto !important;
+    }
+
+    /* 移动设备上的样式调整 */
+    @media screen and (max-width: 749px) {
+      .header {
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+          "drawer logo icons"
+          "nav nav nav";
+        gap: 0.5rem;
+      }
+
+      .header__heading {
+        justify-self: center;
+        text-align: center;
+      }
+
+      .header__inline-menu {
+        justify-self: center;
+        width: 100%;
+      }
+
+      .header__inline-menu > .list-menu--inline {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
     }
 
     /* 导航栏字体大小设置为相对单位 */
@@ -242,7 +301,11 @@
       endif
     -%}
 
-    {%- if section.settings.logo_position == 'middle-left' or section.settings.logo_position == 'middle-center' -%}
+    {%- if section.settings.logo_position == 'middle-left'
+      or section.settings.logo_position == 'middle-center'
+      or section.settings.logo_position == 'top-left'
+      or section.settings.logo_position == 'top-center'
+    -%}
       <h1 class="header__heading">
         <a href="{{ routes.root_url }}" class="header__heading-link header__heading-logo-wrapper link focus-inset">
           {%- if settings.logo != blank -%}
@@ -274,29 +337,6 @@
         endif
       endif
     %}
-
-    {%- if section.settings.logo_position == 'top-left' or section.settings.logo_position == 'top-center' -%}
-      <h1 class="header__heading">
-        <a href="{{ routes.root_url }}" class="header__heading-link header__heading-logo-wrapper link focus-inset">
-          {%- if settings.logo != blank -%}
-            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-            {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-            {{
-              settings.logo
-              | image_url: width: 500
-              | image_tag:
-                class: 'header__heading-logo',
-                widths: '50, 100, 150, 200, 250, 300, 400, 500',
-                width: settings.logo_width,
-                height: logo_height,
-                alt: logo_alt
-            }}
-          {%- else -%}
-            <span class="h2">{{ shop.name }}</span>
-          {%- endif -%}
-        </a>
-      </h1>
-    {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
