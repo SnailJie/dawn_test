@@ -41,6 +41,7 @@
         "text_PDnLDx",
         "button_FbyYFP"
       ],
+      "disabled": true,
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
         "image": "shopify://shop_images/rs_w_600_h_600_cg_true.webp",
@@ -65,9 +66,9 @@
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/rs_w_600_h_600_cg_true.webp",
-            "caption": "Caption",
-            "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "caption": "",
+            "heading": "Our Story",
+            "text": "<p>Cuppy Cuppy was born from a simple love for the everyday joys of life. Based in the U.S., our brand is all about bringing a little more fun, warmth, and charm into your daily routine—starting in the kitchen. Our founder, a passionate collector of unique mugs, cups, and adorable kitchenware, started Cuppy Cuppy to share that joy with the world. We believe that even the most ordinary moments—your morning coffee, a quiet dinner, or a cozy tea break—can feel special with the right touch of design and personality.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -76,9 +77,9 @@
           "type": "row",
           "settings": {
             "image": "shopify://shop_images/rs_w_600_h_300_cg_true.webp",
-            "caption": "Caption",
-            "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "caption": "",
+            "heading": "Our Mission",
+            "text": "<p>At Cuppy Cuppy, our mission is to make everyday life a little brighter through playful, well-designed kitchenware. We believe that joy lives in the small things—like the feel of your favorite mug or the smile a cute plate can bring. Our goal is to create products that add personality, comfort, and a sense of delight to your daily rituals, while celebrating the beauty of simplicity and the fun of living well.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -86,9 +87,10 @@
         "row_HXA8TL": {
           "type": "row",
           "settings": {
-            "caption": "Caption",
-            "heading": "Row",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "image": "shopify://shop_images/rs_w_600_h_300_cg_true_1.webp",
+            "caption": "",
+            "heading": "Our Team",
+            "text": "<p>Cuppy Cuppy is powered by a passionate team based in both the U.S. and China. We’re design enthusiasts and detail lovers who believe that even the simplest items can elevate everyday living. With a sharp eye for style and quality, we search for kitchenware that blends creativity, charm, and function. From concept to creation, our team is dedicated to selecting pieces that bring personality and warmth into your daily routine.</p>",
             "button_label": "",
             "button_link": ""
           }
@@ -126,6 +128,7 @@
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "",
         "heading_size": "h1",
