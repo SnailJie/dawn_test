@@ -48,6 +48,21 @@
   .multirow .image-with-text__media img {
     border: none !important;
     outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 移除图片容器的边框 */
+  .multirow .image-with-text__media {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* 移除所有可能的边框样式 */
+  .multirow .image-with-text__media * {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
 {%- endstyle -%}
 
@@ -99,30 +114,39 @@
                   (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
                   (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
                 {%- endcapture -%}
+                {%- assign image_classes = '' -%}
+                {%- if block.settings.image_shape != blank -%}
+                  {%- assign image_classes = image_classes
+                    | append: ' image-shape--'
+                    | append: block.settings.image_shape
+                  -%}
+                {%- endif -%}
+                {%- if block.settings.image_size != blank -%}
+                  {%- assign image_classes = image_classes
+                    | append: ' image-size--'
+                    | append: block.settings.image_size
+                  -%}
+                {%- endif -%}
                 {{
                   block.settings.image
                   | image_url: width: 1500
-                  | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500', class: 'image-shape--'
-                  | append: block.settings.image_shape
-                  | append: ' image-size--'
-                  | append: block.settings.image_size
-                  | replace: 'image-shape-- ', ''
-                  | replace: ' image-size-- ', ''
-                  | replace: 'image-shape--', ''
-                  | replace: 'image-size--', ''
+                  | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500', class: image_classes
                 }}
               {%- else -%}
-                {{
-                  'detailed-apparel-1'
-                  | placeholder_svg_tag: 'placeholder-svg image-shape--'
-                  | append: block.settings.image_shape
-                  | append: ' image-size--'
-                  | append: block.settings.image_size
-                  | replace: 'image-shape-- ', ''
-                  | replace: ' image-size-- ', ''
-                  | replace: 'image-shape--', ''
-                  | replace: 'image-size--', ''
-                }}
+                {%- assign placeholder_classes = 'placeholder-svg' -%}
+                {%- if block.settings.image_shape != blank -%}
+                  {%- assign placeholder_classes = placeholder_classes
+                    | append: ' image-shape--'
+                    | append: block.settings.image_shape
+                  -%}
+                {%- endif -%}
+                {%- if block.settings.image_size != blank -%}
+                  {%- assign placeholder_classes = placeholder_classes
+                    | append: ' image-size--'
+                    | append: block.settings.image_size
+                  -%}
+                {%- endif -%}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: placeholder_classes }}
               {%- endif -%}
             </div>
           </div>
