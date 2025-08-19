@@ -92,17 +92,17 @@
                   block.settings.image
                   | image_url: width: 1500
                   | image_tag: sizes: sizes, widths: '165, 360, 535, 750, 1070, 1500', class: 'image-shape--'
-                  | append: section.settings.image_shape
+                  | append: block.settings.image_shape
                   | append: ' image-size--'
-                  | append: section.settings.image_size
+                  | append: block.settings.image_size
                 }}
               {%- else -%}
                 {{
                   'detailed-apparel-1'
                   | placeholder_svg_tag: 'placeholder-svg image-shape--'
-                  | append: section.settings.image_shape
+                  | append: block.settings.image_shape
                   | append: ' image-size--'
-                  | append: section.settings.image_size
+                  | append: block.settings.image_size
                 }}
               {%- endif -%}
             </div>
@@ -351,46 +351,6 @@
       "content": "t:sections.multirow.settings.header_3.content"
     },
     {
-      "type": "select",
-      "id": "image_shape",
-      "options": [
-        {
-          "value": "circle",
-          "label": "圆形"
-        },
-        {
-          "value": "square",
-          "label": "正方形"
-        },
-        {
-          "value": "rectangle",
-          "label": "长方形"
-        }
-      ],
-      "default": "rectangle",
-      "label": "图片形状"
-    },
-    {
-      "type": "select",
-      "id": "image_size",
-      "options": [
-        {
-          "value": "fit",
-          "label": "适应图片大小"
-        },
-        {
-          "value": "cover",
-          "label": "放大"
-        },
-        {
-          "value": "scale-down",
-          "label": "缩小"
-        }
-      ],
-      "default": "cover",
-      "label": "图片大小"
-    },
-    {
       "type": "color_scheme",
       "id": "section_color_scheme",
       "label": "t:sections.all.colors.label",
@@ -436,6 +396,46 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.multirow.blocks.row.settings.image.label"
+        },
+        {
+          "type": "select",
+          "id": "image_shape",
+          "options": [
+            {
+              "value": "circle",
+              "label": "圆形"
+            },
+            {
+              "value": "square",
+              "label": "正方形"
+            },
+            {
+              "value": "rectangle",
+              "label": "长方形"
+            }
+          ],
+          "default": "rectangle",
+          "label": "图片形状"
+        },
+        {
+          "type": "select",
+          "id": "image_size",
+          "options": [
+            {
+              "value": "fit",
+              "label": "适应图片大小"
+            },
+            {
+              "value": "cover",
+              "label": "放大"
+            },
+            {
+              "value": "scale-down",
+              "label": "缩小"
+            }
+          ],
+          "default": "cover",
+          "label": "图片大小"
         },
         {
           "type": "text",
