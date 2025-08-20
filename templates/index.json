@@ -11,35 +11,6 @@
   "sections": {
     "image_with_text_brzA87": {
       "type": "image-with-text",
-      "blocks": {
-        "heading_6y8h7p": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p><strong>Charming Kitchenware for Every Home</strong></p>",
-            "heading_size": "h1"
-          }
-        },
-        "text_yWUFiH": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Discover cute and functional kitchen essentials for your cooking.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_KPMr6V": {
-          "type": "button",
-          "settings": {
-            "button_label": "SHOP NOW  FOR KICHEN FUN",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_6y8h7p",
-        "text_yWUFiH",
-        "button_KPMr6V"
-      ],
       "name": "第一块",
       "settings": {
         "image": "shopify://shop_images/cr_w_500_h_500.webp",
@@ -48,12 +19,12 @@
         "layout": "image_first",
         "image_behavior": "none",
         "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
         "section_color_scheme": "",
         "color_scheme": "",
-        "padding_top": 36,
+        "padding_top": 24,
         "padding_bottom": 36
       }
     },
@@ -224,36 +195,6 @@
     },
     "image_with_text_mei3Hf": {
       "type": "image-with-text",
-      "blocks": {
-        "heading_HKWdgF": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>About Us</p>",
-            "heading_size": "h1"
-          }
-        },
-        "text_Pzqpnr": {
-          "type": "text",
-          "settings": {
-            "text": "<p>At Cuppy Cuppy, we believe the kitchen should be the happiest place in your home—not just a space for cooking, but a playground of creativity, joy, and connection. That’s why we create playful, practical kitchen products that bring more fun, color, and variety to your everyday routines. Whether it’s your morning coffee ritual or a weekend dinner with friends, we’re here to add a little extra spark to your culinary life.</p>",
-            "text_style": "body"
-          }
-        },
-        "button_XLRczG": {
-          "type": "button",
-          "disabled": true,
-          "settings": {
-            "button_label": "按鈕標籤",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_HKWdgF",
-        "text_Pzqpnr",
-        "button_XLRczG"
-      ],
       "name": "AboutUS",
       "settings": {
         "image": "shopify://shop_images/Cuppy_logo.jpg",
