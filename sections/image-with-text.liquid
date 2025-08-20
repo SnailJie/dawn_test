@@ -37,7 +37,7 @@
   }
 
   .welcome-text {
-    color: #C0B8B8;
+    color: #958e8e;
     font-size: 20px;
     font-weight: 400;
     margin: 0;
@@ -47,9 +47,9 @@
 
   .main-heading {
     color: #333;
-    font-size: 32px;
-    font-weight: 600;
-    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 54px;
+    font-weight: 50;
+    font-family: serif;
     margin: 0;
     line-height: 1.2;
   }
@@ -149,7 +149,7 @@
             id="ImageWithText--{{ section.id }}"
             class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
           >
-            <div class="custom-text-content">
+            <div class="custom-text-content" style="padding: 0 ">
               <p class="welcome-text">WELCOME</p>
               <h2 class="main-heading">Charming Kitchenware for Every Home</h2>
               <p class="subtitle-text">Discover cute and functional kitchen essentials for your cooking.</p>
