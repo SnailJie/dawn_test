@@ -307,6 +307,26 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "image_text_banner_fUdGxC": {
+      "type": "image-text-banner",
+      "custom_css": [
+        "div{font-size:20px}"
+      ],
+      "name": "图文横幅",
+      "settings": {
+        "image": "shopify://shop_images/rs_w_600_h_600_cg_true.webp",
+        "layout": "image_first",
+        "heading": "",
+        "subheading": "About Us",
+        "description": "<p>At Cuppy Cuppy, we believe the kitchen should be the happiest place in your home—not just a space for cooking, but a playground of creativity, joy, and connection. That’s why we create playful, practical kitchen products that bring more fun, color, and variety to your everyday routines. Whether it’s your morning coffee ritual or a weekend dinner with friends, we’re here to add a little extra spark to your culinary life.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
@@ -317,6 +337,7 @@
     "collection_list_CDDbj7",
     "image_with_text_mei3Hf",
     "multicolumn",
-    "contact_info_LNGNhn"
+    "contact_info_LNGNhn",
+    "image_text_banner_fUdGxC"
   ]
 }
