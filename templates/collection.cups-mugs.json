@@ -9,6 +9,14 @@
  */
 {
   "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
     "quote_banner_XQQtQw": {
       "type": "quote-banner",
       "name": "t:sections.quote_banner.presets.name",
@@ -21,14 +29,6 @@
         "author_name": "Ruth Reichl",
         "padding_top": 64,
         "padding_bottom": 52
-      }
-    },
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
       }
     },
     "slideshow_Vy8EGb": {
@@ -90,8 +90,8 @@
     }
   },
   "order": [
-    "quote_banner_XQQtQw",
     "banner",
+    "quote_banner_XQQtQw",
     "slideshow_Vy8EGb",
     "product-grid"
   ]
