@@ -9,20 +9,12 @@
  */
 {
   "sections": {
-    "banner": {
-      "type": "main-collection-banner",
-      "settings": {
-        "show_collection_description": true,
-        "show_collection_image": false,
-        "color_scheme": "scheme-1"
-      }
-    },
     "quote_banner_XQQtQw": {
       "type": "quote-banner",
       "name": "t:sections.quote_banner.presets.name",
       "settings": {
         "background_image": "shopify://shop_images/shop_all_quote.png",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 20,
         "banner_height": "small",
         "full_width": true,
         "quote_text": "<h1>“The secret of happiness is to find joy in the ordinary.”</h1>",
@@ -31,13 +23,20 @@
         "padding_bottom": 52
       }
     },
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_collection_description": true,
+        "show_collection_image": false,
+        "color_scheme": "scheme-1"
+      }
+    },
     "slideshow_Vy8EGb": {
       "type": "slideshow",
       "blocks": {
         "slide_4Lp8Df": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/breakfast-from-above.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
