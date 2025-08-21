@@ -21,7 +21,7 @@
       "type": "quote-banner",
       "name": "t:sections.quote_banner.presets.name",
       "settings": {
-        "background_image": "shopify://shop_images/two-red-cocktails-on-a-tray.jpg",
+        "background_image": "shopify://shop_images/healthy-breakfast.jpg",
         "image_overlay_opacity": 0,
         "banner_height": "medium",
         "full_width": true,
@@ -37,7 +37,6 @@
         "slide_4Lp8Df": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/layered-plant-leaves-iphone-wallpaper.jpg",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
