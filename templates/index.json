@@ -213,6 +213,7 @@
       ],
       "name": "About",
       "settings": {
+        "image": "shopify://shop_images/Cuppy_logo.jpg",
         "layout": "image_first",
         "heading": "",
         "subheading": "About Us",
