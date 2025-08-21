@@ -17,6 +17,20 @@
         "color_scheme": "scheme-1"
       }
     },
+    "quote_banner_ay8CJx": {
+      "type": "quote-banner",
+      "name": "t:sections.quote_banner.presets.name",
+      "settings": {
+        "background_image": "shopify://shop_images/coffee-cup-on-table-top.jpg",
+        "image_overlay_opacity": 0,
+        "banner_height": "medium",
+        "full_width": true,
+        "quote_text": "<p>The secret of happiness is to find joy in the ordinary.</p>",
+        "author_name": "Ruth Reichl",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "slideshow_Vy8EGb": {
       "type": "slideshow",
       "blocks": {
@@ -42,6 +56,7 @@
       "block_order": [
         "slide_4Lp8Df"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
@@ -77,6 +92,7 @@
   },
   "order": [
     "banner",
+    "quote_banner_ay8CJx",
     "slideshow_Vy8EGb",
     "product-grid"
   ]
