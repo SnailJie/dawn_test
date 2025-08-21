@@ -13,7 +13,7 @@
       "type": "image-with-text",
       "name": "第一块",
       "settings": {
-        "image": "shopify://shop_images/cr_w_500_h_500.webp",
+        "image": "shopify://shop_images/88b2be9a-b6b5-4f94-88fe-d210f8d0dc47.jpg",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "image_first",
@@ -213,7 +213,6 @@
       ],
       "name": "About",
       "settings": {
-        "image": "shopify://shop_images/rs_w_600_h_600_cg_true.webp",
         "layout": "image_first",
         "heading": "",
         "subheading": "About Us",
