@@ -17,17 +17,69 @@
         "color_scheme": "scheme-1"
       }
     },
+    "image_banner_Ynp3Pz": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_R8MTW6": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "text_rRkHjm": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "buttons_cXGHLm": {
+          "type": "buttons",
+          "disabled": true,
+          "settings": {
+            "button_label_1": "Button label",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "Button label",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_R8MTW6",
+        "text_rRkHjm",
+        "buttons_cXGHLm"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/tablet-coffee.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "image_behavior": "ambient",
+        "desktop_content_position": "middle-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": true,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
     "slideshow_Vy8EGb": {
       "type": "slideshow",
       "blocks": {
         "slide_4Lp8Df": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/breakfast-from-above.jpg",
+            "image": "shopify://shop_images/rs_w_600_h_300_cg_true.webp",
             "image_overlay_opacity": 0,
             "heading": "",
             "heading_size": "h1",
-            "subheading": "\"This is a Demo Pic\"",
+            "subheading": "",
             "button_label": "",
             "link": "",
             "button_style_secondary": false,
@@ -42,6 +94,7 @@
       "block_order": [
         "slide_4Lp8Df"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
@@ -77,6 +130,7 @@
   },
   "order": [
     "banner",
+    "image_banner_Ynp3Pz",
     "slideshow_Vy8EGb",
     "product-grid"
   ]
