@@ -19,6 +19,9 @@
     },
     "quote_banner_AnMqfK": {
       "type": "quote-banner",
+      "custom_css": [
+        "p {font-size: 50px;}"
+      ],
       "name": "t:sections.quote_banner.presets.name",
       "settings": {
         "background_image": "shopify://shop_images/healthy-breakfast.jpg",
