@@ -1451,5 +1451,37 @@
         "default": "scheme-1"
       }
     ]
+  },
+  {
+    "name": "Integrations",
+    "settings": [
+      {
+        "type": "header",
+        "content": "VAT Chat Agent"
+      },
+      {
+        "type": "text",
+        "id": "vat_agent_host",
+        "label": "VAT Agent API Host (e.g. https://api.example.com)",
+        "info": "用于 queryAgentConfig 的后端域名"
+      },
+      {
+        "type": "text",
+        "id": "vat_agent_conversation_id",
+        "label": "Conversation ID",
+        "info": "window.XTC_CONVERSATION_ID"
+      },
+      {
+        "type": "select",
+        "id": "vat_agent_env",
+        "label": "Agent Environment",
+        "options": [
+          { "value": "prod", "label": "prod" },
+          { "value": "pre", "label": "pre" },
+          { "value": "dev", "label": "dev" }
+        ],
+        "default": "prod"
+      }
+    ]
   }
 ]

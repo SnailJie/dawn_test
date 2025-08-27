@@ -16,6 +16,14 @@
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" defer></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" defer></script>
 
+<script>
+  window.ANTAICODE_HOST = '{{ settings.vat_agent_host | escape }}';
+  window.XTC_CONVERSATION_ID = '{{ settings.vat_agent_conversation_id | escape }}';
+  window.XTC_ENV = '{{ settings.vat_agent_env | escape }}';
+  window.XTC_SHOP_DOMAIN = '{{ shop.permanent_domain }}';
+  window.XTC_SHOP_LOCALE = '{{ request.locale.iso_code }}';
+</script>
+
 <style>
   .vat-agent-floating-container {
     position: fixed;
