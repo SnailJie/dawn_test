@@ -35,6 +35,26 @@
   const script = document.createElement('script');
   script.src =
     'https://gw.alipayobjects.com/render/p/yuyan_npm/@alipay_vat-chat-agent/1.0.5/dist/vat-chat-agent.min.js';
+  script.async = true;
+  script.addEventListener('load', () => {
+    try {
+      const root =
+        document.getElementById('vat-agent-root') ||
+        (() => {
+          const div = document.createElement('div');
+          div.id = 'vat-agent-root';
+          div.className = 'vat-agent-floating-container';
+          document.body.appendChild(div);
+          return div;
+        })();
+      if (!root.querySelector('vat-chat-agent')) {
+        const el = document.createElement('vat-chat-agent');
+        root.appendChild(el);
+      }
+    } catch (e) {
+      console.error('[vat-chat-agent] mount failed', e);
+    }
+  });
   document.head.appendChild(script);
 </script>
 
