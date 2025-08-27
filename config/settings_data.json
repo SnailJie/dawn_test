@@ -123,6 +123,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "vat_agent_host": "https://afaicode.alipay.com/",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
