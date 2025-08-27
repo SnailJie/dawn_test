@@ -124,6 +124,7 @@
     "show_cart_note": false,
     "cart_drawer_collection": "",
     "vat_agent_host": "https://afaicode.alipay.com/",
+    "vat_agent_conversation_id": "xxxxxxxxxx",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
