@@ -41,10 +41,6 @@
 
     {{ content_for_header }}
 
-    {%- if template == 'index' or request.page_type == 'index' -%}
-      {%- render 'vat-chat-agent-head' -%}
-    {%- endif -%}
-
     {%- liquid
       assign body_font_bold = settings.type_body_font | font_modify: 'weight', 'bold'
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
