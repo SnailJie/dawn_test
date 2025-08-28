@@ -19,6 +19,8 @@
   .extended-collage {
     grid-column-gap: var(--grid-mobile-horizontal-spacing);
     grid-row-gap: var(--grid-mobile-vertical-spacing);
+    max-width: 90%;
+    margin: 0 auto;
   }
 
   .extended-collage--mobile {
@@ -55,6 +57,12 @@
   }
 }
 
+@media screen and (max-width: 480px) {
+  .extended-collage {
+    max-width: 95%;
+  }
+}
+
 @media screen and (min-width: 750px) {
   .extended-collage {
     grid-auto-flow: column;
@@ -62,6 +70,8 @@
     grid-row-gap: var(--grid-desktop-vertical-spacing);
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: repeat(3, minmax(0, 1fr));
+    max-width: 75%;
+    margin: 0 auto;
   }
 
   /* 大块在左侧的布局 */
