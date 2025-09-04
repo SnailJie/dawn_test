@@ -69,8 +69,7 @@
     grid-column-gap: var(--grid-desktop-horizontal-spacing);
     grid-row-gap: var(--grid-desktop-vertical-spacing);
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(0, 1fr));
-    max-width: 75%;
+    grid-template-rows: repeat(3, minmax(0, 1fr)); 
     margin: 0 auto;
   }
 
@@ -265,9 +264,8 @@
   text-decoration: none;
   transition: text-decoration 0.3s ease;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   border-radius: 8px;
-  backdrop-filter: blur(2px);
 }
 
 .extended-collage-text-overlay:hover {
@@ -335,16 +333,15 @@
   text-align: center;
   color: white;
   padding: 1.2rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: transparent;
   border-radius: 12px;
-  backdrop-filter: blur(4px);
   width: 85%;
   max-width: 300px;
   transition: all 0.3s ease;
 }
 
 .extended-collage-product-overlay:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: transparent;
   transform: translate(-50%, -50%) scale(1.02);
 }
 
@@ -411,9 +408,8 @@
   text-align: center;
   width: 90%;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: transparent;
   border-radius: 8px;
-  backdrop-filter: blur(2px);
 }
 
 .extended-collage__item--collection .card__heading a:hover {
