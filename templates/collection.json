@@ -27,7 +27,7 @@
       "settings": {
         "background_image": "shopify://shop_images/shop_all_quote.png",
         "image_overlay_opacity": 0,
-        "banner_height": "medium",
+        "banner_height": "small",
         "full_width": true,
         "quote_text": "<p>“The secret of happiness is to find joy in the ordinary.”</p>",
         "author_name": "Ruth Reichl",
