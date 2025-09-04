@@ -21,7 +21,7 @@
       "type": "quote-banner",
       "custom_css": [
         "p {font-size: 45px;}",
-        ".quote-banner__author-name{font-size: 30px}"
+        ".quote-banner__author-name {font-size: 30px;}"
       ],
       "name": "t:sections.quote_banner.presets.name",
       "settings": {
@@ -31,8 +31,8 @@
         "full_width": true,
         "quote_text": "<p>“The secret of happiness is to find joy in the ordinary.”</p>",
         "author_name": "Ruth Reichl",
-        "padding_top": 40,
-        "padding_bottom": 52
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "slideshow_Vy8EGb": {
