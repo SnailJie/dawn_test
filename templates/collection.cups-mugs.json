@@ -20,7 +20,7 @@
     "quote_banner_XQQtQw": {
       "type": "quote-banner",
       "custom_css": [
-        "p {font-size: 45px;}",
+        "div {font-size: 40px;}",
         ".quote-banner__author-name {font-size: 30px;}"
       ],
       "name": "t:sections.quote_banner.presets.name",
