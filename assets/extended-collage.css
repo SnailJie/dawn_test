@@ -271,7 +271,6 @@
   padding: 1rem;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  backdrop-filter: blur(2px);
 }
 
 .extended-collage-text-overlay:hover {
@@ -341,7 +340,6 @@
   padding: 1.2rem;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
-  backdrop-filter: blur(4px);
   width: 85%;
   max-width: 300px;
   transition: all 0.3s ease;
@@ -417,7 +415,6 @@
   padding: 1rem;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  backdrop-filter: blur(2px);
 }
 
 .extended-collage__item--collection .card__heading a:hover {
