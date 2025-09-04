@@ -1,1 +1,339 @@
-{"sections":{"image_with_text_brzA87":{"type":"image-with-text","name":"第一块","settings":{"image":"shopify:\/\/shop_images\/88b2be9a-b6b5-4f94-88fe-d210f8d0dc47.jpg","height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"middle","desktop_content_alignment":"center","mobile_content_alignment":"center","section_color_scheme":"","color_scheme":"","padding_top":24,"padding_bottom":36}},"extended_collage_inqyJt":{"type":"extended-collage","blocks":{"product_WGw8CE":{"type":"product","settings":{"product":"ceramic-mug-for-girls-cute-home-drinking-cup-new-2024-dormitory-breakfast-coffee-cup-office","second_image":false}},"product_rQhbkc":{"type":"product","settings":{"product":"cute-bowl","second_image":false}},"product_eRPN9q":{"type":"product","settings":{"product":"party-time-cup","second_image":false}},"product_XzB8PL":{"type":"product","settings":{"product":"gradient-tumbler-with-straw","second_image":false}}},"block_order":["product_WGw8CE","product_rQhbkc","product_eRPN9q","product_XzB8PL","product_kXHqeh"],"custom_css":[".extended-collage-product-overlay {background: none; font-weight: 400px;}"],"name":"PRODUCTS","settings":{"heading":"Featured Products","heading_size":"h2","desktop_layout":"left","mobile_layout":"column","card_styles":"product-card-wrapper","color_scheme":"","padding_top":36,"padding_bottom":36}},"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Image banner","heading_size":"h0"}},"text":{"type":"text","settings":{"text":"Give customers details about the banner image(s) or content on the template.","text_style":"body"}},"button":{"type":"buttons","settings":{"button_label_1":"Shop all","button_link_1":"shopify:\/\/collections\/all","button_style_secondary_1":true,"button_label_2":"","button_link_2":"","button_style_secondary_2":false}}},"block_order":["heading","text","button"],"disabled":true,"settings":{"image_overlay_opacity":40,"image_height":"large","image_behavior":"none","desktop_content_position":"bottom-center","desktop_content_alignment":"center","show_text_box":false,"color_scheme":"scheme-3","stack_images_on_mobile":false,"mobile_content_alignment":"center","show_text_below":false}},"rich_text":{"type":"rich-text","blocks":{"heading":{"type":"heading","settings":{"heading":"Let’s Get in Touch!","heading_size":"h1"}},"text":{"type":"text","settings":{"text":"<p>We’d love to hear from you! For any questions or inquiries, please reach out to us at our email below. We’ll get back to you as soon as we can.<\/p><h4>Cuppy Cuppy<\/h4><p><a href=\"mailto:info@cuppycuppy.com\">info@cuppycuppy.com<\/a><\/p><h4>Hoursl;;;;<\/h4><p>Mon<\/p><p>09:00 am – 05:00 pm<\/p><p>Tue<\/p><p>09:00 am – 05:00 pm<\/p><p>Wed<\/p><p>09:00 am – 05:00 pm<\/p><p>Thu<\/p><p>09:00 am – 05:00 pm<\/p><p>Fri<\/p><p>09:00 am – 05:00 pm<\/p><p>Sat<\/p><p>Closed<\/p><p>Sun<\/p><p>Closed<\/p>"}}},"block_order":["heading","text"],"disabled":true,"settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"scheme-1","full_width":true,"padding_top":40,"padding_bottom":0}},"collection_list_CDDbj7":{"type":"collection-list","blocks":{"featured_collection_yXiXaF":{"type":"featured_collection","settings":{"collection":"cups-mugs-1"}},"featured_collection_mLjNW8":{"type":"featured_collection","settings":{"collection":"tableware"}},"featured_collection_rnjGHK":{"type":"featured_collection","settings":{"collection":"utensils"}}},"block_order":["featured_collection_yXiXaF","featured_collection_mLjNW8","featured_collection_rnjGHK"],"name":"t:sections.collection-list.presets.name","settings":{"title":"Featured  Category","heading_size":"h1","image_ratio":"square","columns_desktop":3,"color_scheme":"","show_view_all":false,"columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"image_text_banner_fUdGxC":{"type":"image-text-banner","custom_css":["div {font-size: 18px; text-align: center;}"],"name":"About","settings":{"image":"shopify:\/\/shop_images\/Cuppy_logo.jpg","layout":"image_first","heading":"","subheading":"About Us","description":"<p>At Cuppy Cuppy, we believe the kitchen should be the happiest place in your home—not just a space for cooking, but a playground of creativity, joy, and connection. That’s why we create playful, practical kitchen products that bring more fun, color, and variety to your everyday routines. Whether it’s your morning coffee ritual or a weekend dinner with friends, we’re here to add a little extra spark to your culinary life.<\/p>","button_label":"","button_link":"","button_style":"primary","color_scheme":"background-1","padding_top":40,"padding_bottom":40}},"image_with_text_mei3Hf":{"type":"image-with-text","disabled":true,"name":"AboutUS","settings":{"image":"shopify:\/\/shop_images\/Cuppy_logo.jpg","height":"adapt","desktop_image_width":"medium","layout":"image_first","image_behavior":"none","content_layout":"no-overlap","desktop_content_position":"top","desktop_content_alignment":"left","mobile_content_alignment":"left","section_color_scheme":"","color_scheme":"","padding_top":36,"padding_bottom":36}},"multicolumn":{"type":"multicolumn","blocks":{"column1":{"type":"column","settings":{"title":"Column","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column2":{"type":"column","settings":{"title":"Column","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}},"column3":{"type":"column","settings":{"title":"Column","text":"<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>","link_label":"","link":""}}},"block_order":["column1","column2","column3"],"disabled":true,"settings":{"title":"","heading_size":"h1","image_width":"third","image_ratio":"adapt","button_label":"","button_link":"","columns_desktop":3,"column_alignment":"center","background_style":"none","color_scheme":"scheme-1","columns_mobile":"1","swipe_on_mobile":false,"padding_top":36,"padding_bottom":36}},"contact_info_LNGNhn":{"type":"contact-info","name":"联系信息","settings":{"heading":"Let's Get in Touch!","heading_size":"h1","description":"<p>We'd love to hear from you! For any questions or inquiries, please reach out to us at our email below. We'll get back to you as soon as we can.<\/p>","content_heading":"Cuppy Cuppy","rich_text":"<p>info@cuppycuppy.com<\/p>","hours_heading":"Hours","sunday_label":"Sun","sunday_hours":"Closed","monday_label":"Mon","monday_hours":"09:00 am – 05:00 pm","tuesday_label":"Tue","tuesday_hours":"09:00 am – 05:00 pm","wednesday_label":"Wed","wednesday_hours":"09:00 am – 05:00 pm","thursday_label":"Thu","thursday_hours":"09:00 am – 05:00 pm","friday_label":"Fri","friday_hours":"09:00 am – 05:00 pm","saturday_label":"Sat","saturday_hours":"Closed","color_scheme":"","padding_top":36,"padding_bottom":36}}},"order":["image_with_text_brzA87","extended_collage_inqyJt","image_banner","rich_text","collection_list_CDDbj7","image_text_banner_fUdGxC","image_with_text_mei3Hf","multicolumn","contact_info_LNGNhn"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_with_text_brzA87": {
+      "type": "image-with-text",
+      "name": "第一块",
+      "settings": {
+        "image": "shopify://shop_images/88b2be9a-b6b5-4f94-88fe-d210f8d0dc47.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "center",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 24,
+        "padding_bottom": 36
+      }
+    },
+    "extended_collage_inqyJt": {
+      "type": "extended-collage",
+      "blocks": {
+        "product_WGw8CE": {
+          "type": "product",
+          "settings": {
+            "product": "ceramic-mug-for-girls-cute-home-drinking-cup-new-2024-dormitory-breakfast-coffee-cup-office",
+            "second_image": false
+          }
+        },
+        "product_rQhbkc": {
+          "type": "product",
+          "settings": {
+            "product": "cute-bowl",
+            "second_image": false
+          }
+        },
+        "product_eRPN9q": {
+          "type": "product",
+          "settings": {
+            "product": "party-time-cup",
+            "second_image": false
+          }
+        },
+        "product_XzB8PL": {
+          "type": "product",
+          "settings": {
+            "product": "gradient-tumbler-with-straw",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "product_WGw8CE",
+        "product_rQhbkc",
+        "product_eRPN9q",
+        "product_XzB8PL"
+      ],
+      "custom_css": [
+        ".extended-collage-product-overlay {background: none; font-weight: 400px;}"
+      ],
+      "name": "PRODUCTS",
+      "settings": {
+        "heading": "Featured Products",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Image banner",
+            "heading_size": "h0"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "Give customers details about the banner image(s) or content on the template.",
+            "text_style": "body"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "Shop all",
+            "button_link_1": "shopify://collections/all",
+            "button_style_secondary_1": true,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text",
+        "button"
+      ],
+      "disabled": true,
+      "settings": {
+        "image_overlay_opacity": 40,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-center",
+        "desktop_content_alignment": "center",
+        "show_text_box": false,
+        "color_scheme": "scheme-3",
+        "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
+        "show_text_below": false
+      }
+    },
+    "rich_text": {
+      "type": "rich-text",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Let’s Get in Touch!",
+            "heading_size": "h1"
+          }
+        },
+        "text": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We’d love to hear from you! For any questions or inquiries, please reach out to us at our email below. We’ll get back to you as soon as we can.</p><h4>Cuppy Cuppy</h4><p><a href=\"mailto:info@cuppycuppy.com\">info@cuppycuppy.com</a></p><h4>Hoursl;;;;</h4><p>Mon</p><p>09:00 am – 05:00 pm</p><p>Tue</p><p>09:00 am – 05:00 pm</p><p>Wed</p><p>09:00 am – 05:00 pm</p><p>Thu</p><p>09:00 am – 05:00 pm</p><p>Fri</p><p>09:00 am – 05:00 pm</p><p>Sat</p><p>Closed</p><p>Sun</p><p>Closed</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text"
+      ],
+      "disabled": true,
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "collection_list_CDDbj7": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_yXiXaF": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "cups-mugs-1"
+          }
+        },
+        "featured_collection_mLjNW8": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "tableware"
+          }
+        },
+        "featured_collection_rnjGHK": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "utensils"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_yXiXaF",
+        "featured_collection_mLjNW8",
+        "featured_collection_rnjGHK"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Featured  Category",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "image_text_banner_fUdGxC": {
+      "type": "image-text-banner",
+      "custom_css": [
+        "div {font-size: 18px; text-align: center;}"
+      ],
+      "name": "About",
+      "settings": {
+        "image": "shopify://shop_images/Cuppy_logo.jpg",
+        "layout": "image_first",
+        "heading": "",
+        "subheading": "About Us",
+        "description": "<p>At Cuppy Cuppy, we believe the kitchen should be the happiest place in your home—not just a space for cooking, but a playground of creativity, joy, and connection. That’s why we create playful, practical kitchen products that bring more fun, color, and variety to your everyday routines. Whether it’s your morning coffee ritual or a weekend dinner with friends, we’re here to add a little extra spark to your culinary life.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "image_with_text_mei3Hf": {
+      "type": "image-with-text",
+      "disabled": true,
+      "name": "AboutUS",
+      "settings": {
+        "image": "shopify://shop_images/Cuppy_logo.jpg",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "multicolumn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column1": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column2": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column3": {
+          "type": "column",
+          "settings": {
+            "title": "Column",
+            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column1",
+        "column2",
+        "column3"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_info_LNGNhn": {
+      "type": "contact-info",
+      "name": "联系信息",
+      "settings": {
+        "heading": "Let's Get in Touch!",
+        "heading_size": "h1",
+        "description": "<p>We'd love to hear from you! For any questions or inquiries, please reach out to us at our email below. We'll get back to you as soon as we can.</p>",
+        "content_heading": "Cuppy Cuppy",
+        "rich_text": "<p>info@cuppycuppy.com</p>",
+        "hours_heading": "Hours",
+        "sunday_label": "Sun",
+        "sunday_hours": "Closed",
+        "monday_label": "Mon",
+        "monday_hours": "09:00 am – 05:00 pm",
+        "tuesday_label": "Tue",
+        "tuesday_hours": "09:00 am – 05:00 pm",
+        "wednesday_label": "Wed",
+        "wednesday_hours": "09:00 am – 05:00 pm",
+        "thursday_label": "Thu",
+        "thursday_hours": "09:00 am – 05:00 pm",
+        "friday_label": "Fri",
+        "friday_hours": "09:00 am – 05:00 pm",
+        "saturday_label": "Sat",
+        "saturday_hours": "Closed",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "image_with_text_brzA87",
+    "extended_collage_inqyJt",
+    "image_banner",
+    "rich_text",
+    "collection_list_CDDbj7",
+    "image_text_banner_fUdGxC",
+    "image_with_text_mei3Hf",
+    "multicolumn",
+    "contact_info_LNGNhn"
+  ]
+}
