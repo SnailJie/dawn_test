@@ -135,14 +135,7 @@
   {%- if show_quick_add == 'standard' and card_product.variants.size > 1 -%}
     <div class="aesop-product-card__quick-add">
       <product-form>
-        {%-
-          form 'product',
-          card_product,
-          id: 'quick-add-form-' | append: card_product.id,
-          class: 'aesop-product-card__form',
-          novalidate: 'novalidate',
-          data-type: 'add-to-cart-form'
-        -%}
+        {%- form card_product.id, class: 'aesop-product-card__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
           <input
             type="hidden"
             name="id"
@@ -184,14 +177,7 @@
   {%- elsif show_quick_add == 'standard' and card_product.variants.size == 1 -%}
     <div class="aesop-product-card__quick-add">
       <product-form>
-        {%-
-          form 'product',
-          card_product,
-          id: 'quick-add-form-' | append: card_product.id,
-          class: 'aesop-product-card__form',
-          novalidate: 'novalidate',
-          data-type: 'add-to-cart-form'
-        -%}
+        {%- form card_product.id, class: 'aesop-product-card__form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
           <input
             type="hidden"
             name="id"
@@ -239,3 +225,34 @@
     </div>
   {%- endif -%}
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%-
+              form 'product',
+              card_product,
+              id: 'quick-add-form-' | append: card_product.id,
+              class: 'aesop-product-card__form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+  to: "{%- form card_product.id, class: 'aesop-product-card__form', novalidate: 'novalidate',
+    data-type: 'add-to-cart-form' -%}"
+  position: 6382..6502
+- from: |-
+    {%-
+              form 'product',
+              card_product,
+              id: 'quick-add-form-' | append: card_product.id,
+              class: 'aesop-product-card__form',
+              novalidate: 'novalidate',
+              data-type: 'add-to-cart-form'
+            -%}
+  to: "{%- form card_product.id, class: 'aesop-product-card__form', novalidate: 'novalidate',
+    data-type: 'add-to-cart-form' -%}"
+  position: 8000..8120
+{% endcomment %}
